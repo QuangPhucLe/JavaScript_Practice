@@ -80,6 +80,7 @@ console.log(kiemTraHocLuc(6.5));
 console.log(kiemTraHocLuc(5));
 console.log(kiemTraHocLuc(2));
 
+console.log("Da lam xong bai tap co ban 4/8/2026");
 
 
 
