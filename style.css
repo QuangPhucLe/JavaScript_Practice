@@ -41,7 +41,7 @@ body {
 
 #console-display {
     padding: 20px;
-    color: #00ff00; /* Màu xanh chuẩn hacker */
+    color: white;
     font-family: 'Consolas', 'Monaco', monospace;
     font-size: 16px;
     line-height: 1.5;
