@@ -225,3 +225,23 @@ console.log(thanhToan(myCart, "GIAM20%"));
 console.log(thanhToan([5000000], "GIAM20%"));
 
 
+// // 1. Chọn phần tử
+// const box = document.getElementById('main-box');
+
+// // 2. Thiết lập kích thước ban đầu bằng JS
+// box.style.width = "30px";
+// box.style.height = "30px";
+// box.style.backgroundColor = "orange";
+// box.style.transition = "0.3s"; // Thêm chút hiệu ứng mượt mà
+
+// // 3. Xử lý sự kiện di chuột vào
+// box.addEventListener('mouseover', () => {
+//     box.style.backgroundColor = "red";
+//     box.style.borderRadius = "50%"; // Biến thành hình tròn cho vui
+// });
+
+// // 4. Xử lý sự kiện di chuột ra
+// box.addEventListener('mouseout', () => {
+//     box.style.backgroundColor = "orange";
+//     box.style.borderRadius = "0%"; // Trở lại hình vuông
+// });
