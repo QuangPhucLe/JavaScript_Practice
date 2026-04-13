@@ -187,42 +187,42 @@ console.log = function (...args) {
 
 // ----------------------------------------------------------------------------------------------
 
-function thanhToan(gioHang, maGiamGia)  {
-    let tongTien = 0;
-    let quaTang = "Khong co qua tang";
+// function thanhToan(gioHang, maGiamGia)  {
+//     let tongTien = 0;
+//     let quaTang = "Khong co qua tang";
     
-    for (let i = 0; i < gioHang.length; i++)    {
-        tongTien += gioHang[i];
-    }
+//     for (let i = 0; i < gioHang.length; i++)    {
+//         tongTien += gioHang[i];
+//     }
 
-    switch(maGiamGia)   {
-        case "GIAM20%":
-            tongTien = tongTien*0.8;
-            break;
-        case "FREESHIP":
-            tongTien = tongTien - 30000;
-            break;
-        default:
-            break;
-    }
+//     switch(maGiamGia)   {
+//         case "GIAM20%":
+//             tongTien = tongTien*0.8;
+//             break;
+//         case "FREESHIP":
+//             tongTien = tongTien - 30000;
+//             break;
+//         default:
+//             break;
+//     }
 
-    if (tongTien >= 500000) {
-        quaTang = "Phieu mua hang 50.000VND";
-    }
+//     if (tongTien >= 500000) {
+//         quaTang = "Phieu mua hang 50.000VND";
+//     }
 
-    if (tongTien <= 30000)  {
-        tongTien = 0;
-    }
+//     if (tongTien <= 30000)  {
+//         tongTien = 0;
+//     }
 
-    return `-----Hoa Don Cua Ban-----
-    Tổng tiền thanh toán: ${tongTien.toLocaleString()} VNĐ    
-    Ma giam gia: ${maGiamGia || "Khong Co"}
-    Quan tang: ${quaTang}
-    -----Cam on quy khach----- `;
-}
-const myCart = [150000, 200000, 300000, 50000]; // Tổng 700k
-console.log(thanhToan(myCart, "GIAM20%"));
-console.log(thanhToan([5000000], "GIAM20%"));
+//     return `-----Hoa Don Cua Ban-----
+//     Tổng tiền thanh toán: ${tongTien.toLocaleString()} VNĐ    
+//     Ma giam gia: ${maGiamGia || "Khong Co"}
+//     Quan tang: ${quaTang}
+//     -----Cam on quy khach----- `;
+// }
+// const myCart = [150000, 200000, 300000, 50000]; // Tổng 700k
+// console.log(thanhToan(myCart, "GIAM20%"));
+// console.log(thanhToan([5000000], "GIAM20%"));
 
 
 // // 1. Chọn phần tử
@@ -245,3 +245,64 @@ console.log(thanhToan([5000000], "GIAM20%"));
 //     box.style.backgroundColor = "orange";
 //     box.style.borderRadius = "0%"; // Trở lại hình vuông
 // });
+
+//----------------------------------------------------------------------------------------------
+// function reverseString(str) {
+//   let result = "";
+//   // Duyệt từ index cuối (str.length - 1) về 0
+//   for (let i = str.length - 1; i >= 0; i--) {
+//     console.log(i);
+//     result += str[i];
+//   }
+//   return result;
+// }
+
+// console.log(reverseString("Hello Phuc")); // "cuhP olleH"
+//----------------------------------------------------------------------------------------------
+
+// function flattenArray(arr) {
+//   let result = [];
+  
+//   arr.forEach(item => {
+//     if (Array.isArray(item)) {
+//       // Nếu là mảng, dùng spread operator để gộp kết quả đệ quy
+//       result.push(...flattenArray(item));
+//     } else {
+//       result.push(item);
+//     }
+//   });
+  
+//   return result;
+// }
+
+// const messyArr = [1, [2, [3, 4], 5], 6];
+// console.log(flattenArray(messyArr)); // [1, 2, 3, 4, 5, 6]
+//----------------------------------------------------------------------------------------------
+const projects = [
+  { name: "Web bán hàng", tech: "HTML" },
+  { name: "App thời tiết", tech: "JS" },
+  { name: "Portfolio cá nhân", tech: "JS" }
+];
+
+function filterProjects(techName) {
+  // 1. Tạo một mảng trống để chứa các kết quả thỏa mãn
+  var results = [];
+
+  // 2. Dùng vòng lặp for truyền thống để duyệt qua từng project
+  for (var i = 0; i < projects.length; i++) {
+    var currentProject = projects[i];
+
+    // 3. Kiểm tra xem tech của project hiện tại có khớp với techName cần tìm không
+    if (currentProject.tech === techName) {
+      // 4. Nếu khớp thì "đẩy" vào mảng results
+      results.push(currentProject);
+    }
+  }
+
+  // 5. Trả về mảng kết quả sau khi đã lọc xong
+  return results;
+}
+
+// Chạy thử
+var jsProjects = filterProjects("JS");
+console.log(jsProjects);
