@@ -278,31 +278,72 @@ console.log = function (...args) {
 // const messyArr = [1, [2, [3, 4], 5], 6];
 // console.log(flattenArray(messyArr)); // [1, 2, 3, 4, 5, 6]
 //----------------------------------------------------------------------------------------------
-const projects = [
-  { name: "Web bán hàng", tech: "HTML" },
-  { name: "App thời tiết", tech: "JS" },
-  { name: "Portfolio cá nhân", tech: "JS" }
-];
+// const projects = [
+//   { name: "Web bán hàng", tech: "HTML" },
+//   { name: "App thời tiết", tech: "JS" },
+//   { name: "Portfolio cá nhân", tech: "JS" }
+// ];
 
-function filterProjects(techName) {
-  // 1. Tạo một mảng trống để chứa các kết quả thỏa mãn
-  var results = [];
+// function filterProjects(techName) {
+//   // 1. Tạo một mảng trống để chứa các kết quả thỏa mãn
+//   var results = [];
 
-  // 2. Dùng vòng lặp for truyền thống để duyệt qua từng project
-  for (var i = 0; i < projects.length; i++) {
-    var currentProject = projects[i];
+//   // 2. Dùng vòng lặp for truyền thống để duyệt qua từng project
+//   for (var i = 0; i < projects.length; i++) {
+//     var currentProject = projects[i];
 
-    // 3. Kiểm tra xem tech của project hiện tại có khớp với techName cần tìm không
-    if (currentProject.tech === techName) {
-      // 4. Nếu khớp thì "đẩy" vào mảng results
-      results.push(currentProject);
-    }
-  }
+//     // 3. Kiểm tra xem tech của project hiện tại có khớp với techName cần tìm không
+//     if (currentProject.tech === techName) {
+//       // 4. Nếu khớp thì "đẩy" vào mảng results
+//       results.push(currentProject);
+//     }
+//   }
 
-  // 5. Trả về mảng kết quả sau khi đã lọc xong
-  return results;
-}
+//   // 5. Trả về mảng kết quả sau khi đã lọc xong
+//   return results;
+// }
 
-// Chạy thử
-var jsProjects = filterProjects("JS");
-console.log(jsProjects);
+// // Chạy thử
+// var jsProjects = filterProjects("JS");
+// console.log(jsProjects);
+//----------------------------------------------------------------------------------------------
+
+// var twoSum = function(nums, target) {
+//     let left = 0;                 // Start index
+//     let right = nums.length - 1;  // End index
+
+//     while (left < right) {        // Continue until pointers meet
+//         let sum = nums[left] + nums[right];
+
+//         if (sum === target) {
+//             return [left, right]; // Found the pair!
+//         } 
+        
+//         if (sum > target) {
+//             right--;              // Sum too big? Move the right pointer left
+//         } else {
+//             left++;               // Sum too small? Move the left pointer right
+//         }
+//     }
+//     return []; // No pair found
+// };
+
+// const nums = [1, 2, 3, 4, 6, 7, 8];
+// console.log(twoSum(nums, 3)); // Output: [0, 1] (Indices of 1 and 2)
+// // ----------------------------------------------------------------------------------------------
+// var twoSum = function(nums, target) {
+//     let map = {}; // Dùng để lưu: { giá_trị: chỉ_số }
+
+//     for (let i = 0; i < nums.length; i++) {
+//         let complement = target - nums[i]; // Số còn thiếu để đủ target
+        
+//         // Kiểm tra xem số còn thiếu này đã xuất hiện trước đó chưa
+//         if (complement in map) {
+//             return [map[complement], i];
+//         }
+        
+//         // Nếu chưa, lưu số hiện tại vào map để các số sau kiểm tra
+//         map[nums[i]] = i;
+//     }
+//     return []; // Trả về mảng rỗng thay vì null
+// };
