@@ -349,3 +349,260 @@ console.log = function (...args) {
 // };
 
 //----------------------------------------------------------------------------------------------
+
+// function checkAge(age) {
+//     if (age >= 6 && age <= 18){
+//         return "Ban nam trong do tuoi di hoc";
+//     }
+//     else {
+//         return "Ban khong nam trong do tuoi di hoc";
+//     }
+// }
+// console.log(checkAge(6));
+// console.log(checkAge(8));
+
+// function checkAge(age) {
+//     age >= 6 && age <= 18
+//     ? console.log("Ban nam trong do tuoi di hoc")
+//     : console.log("Ban khong nam trong do tuoi di hoc");
+// }
+// checkAge(6);
+
+// ----------------------------------------------------------------------------------------------
+// function isHealthy(heartRate, temperature) {
+//     heartRate > 60 && heartRate < 100 && temperature >= 36.5 && temperature <= 37.5
+//     ? console.log("Ban dang o trang thai suc khoe tot")
+//     : console.log("Ban dang o trang thai suc khoe khong tot");
+// }
+// isHealthy(70, 37);
+
+// ----------------------------------------------------------------------------------------------
+
+// function checkJoinCondition(age, job, enrollEvent) {
+//     age >= 18 && job === "IT" && enrollEvent === true
+//     ? console.log("Du dieu kien tham gia.")
+//     : console.log("Khong du dieu kien tham gia.");
+// }
+
+// checkJoinCondition(20, "IT", true);
+// checkJoinCondition(18, "IT", false);
+
+// function checkJoinCondition(age, job, enrollEvent) {
+//     if (age >= 18 && job === "IT" && enrollEvent === true) {
+//         console.log("Du dieu kien tham gia.");
+//     } else {
+//         console.log("Khong du dieu kien tham gia.");
+//     }
+// }
+
+// checkJoinCondition(20, "IT", true);
+// checkJoinCondition(18, "IT", false);
+
+// function checkJoinCondition(age, IT, joinedEvent) {
+//     if (age >= 18 && IT && joinedEvent) {
+//         return "Du dieu kien tham gia.";
+//     } else {
+//         return "Khong du dieu kien tham gia.";
+//     }
+// }
+// console.log(checkJoinCondition(20, true, true));
+// console.log(checkJoinCondition(18, true, false));
+
+// ----------------------------------------------------------------------------------------------
+
+// function canPurchaseCarInsurance(age, hasLicense, noAccidents) {
+//     return age >= 18 && hasLicense && noAccidents
+// }
+// console.log(canPurchaseCarInsurance(25, true, true)); 
+// console.log(canPurchaseCarInsurance(17, true, false)); 
+//----------------------------------------------------------------------------------------------
+
+// function canJoinSoccerTeam(age, hasExperience, medicalClearance) {
+//     return age >= 18 && hasExperience && medicalClearance;
+// }
+// console.log(canJoinSoccerTeam(20, true, true));
+// console.log(canJoinSoccerTeam(17, true, false));
+
+// ----------------------------------------------------------------------------------------------
+
+// function canJoinCookingClass(age, hasIngredients, signedUp) {
+//     return age >= 18 && hasIngredients && signedUp;
+// }       
+// console.log(canJoinCookingClass(25, true, true));
+// console.log(canJoinCookingClass(17, true, false));
+
+// ----------------------------------------------------------------------------------------------
+
+// function canOrganizeEvent(bandCount, enoughBudget, wheatherForecast) {
+//     return bandCount >= 3 && enoughBudget && wheatherForecast !== "Rainy";
+// }
+// console.log(canOrganizeEvent(6, true, "Sunny")); //true
+// console.log(canOrganizeEvent(2, true, "Rainy")); //false
+// console.log(canOrganizeEvent(5, true, "Rainy")); //false
+
+// ----------------------------------------------------------------------------------------------
+
+// function canOpenNewShop(goodLocation, highAdBudget, experiencedStaff) {
+//     return (goodLocation || highAdBudget) && experiencedStaff >= 3;
+// }
+// console.log(canOpenNewShop(true, false, 4)); //true
+// console.log(canOpenNewShop(true, true, 1)); //false
+// console.log(canOpenNewShop(false, true, 3)); //true
+
+// ----------------------------------------------------------------------------------------------
+// function isCapableProjectManager(experience, goodCommunication, knowledge) {
+//     return experience >= 3 && goodCommunication && knowledge;
+// }
+// console.log(isCapableProjectManager(4, true, true)); //true
+// console.log(isCapableProjectManager(2, true, true)); //false
+// console.log(isCapableProjectManager(5, false, true)); //false
+
+// ----------------------------------------------------------------------------------------------
+
+// function investmentDecision(riskLevel, roi) {
+//     if ((riskLevel === "Low" || riskLevel === "Medium") && roi > 0.1) {
+//         return true;
+//     }
+//     else if (riskLevel === "High" && roi > 0.2) {
+//         return true;
+//     } 
+//     else {
+//         return false;
+//     }
+// }
+// // Cách viết ngắn gọn hơn với toán tử logic:
+// function investmentDecision(riskLevel, roi) {
+//     return riskLevel !== "High" && roi > 0.1 || riskLevel === "High" && roi > 0.2;
+// }
+
+// console.log(investmentDecision("Medium", 0.12)); // true
+// console.log(investmentDecision("Medium", 0.1)); // false
+// console.log(investmentDecision("High", 0.2)); // false
+// console.log(investmentDecision("High", 0.5)); // true
+
+// ----------------------------------------------------------------------------------------------
+
+// function determineTravelPlan(goodWeather, budget, loveAdventure) {
+//     if (!goodWeather) {
+//         return "O nha xem phim";
+//     }
+//     if  (goodWeather&& budget >= 5000 && loveAdventure) {
+//         return "Du lich nui";
+//     }
+//     if (goodWeather && budget >= 5000 && !loveAdventure) {
+//         return "Du lich bien";
+//     }
+//     if (goodWeather && budget < 5000) {
+//         return "Kham pha dia phuong";
+//     }
+// }
+
+// Cách viết ngắn gọn hơn với toán tử logic:
+
+// function determineTravelPlan(goodWeather, budget, loveAdventure) {
+//     if (!goodWeather) {
+//         return "O nha xem phim";
+//     }
+//     if (goodWeather && budget >= 5000) {
+//         if (loveAdventure) {
+//             return "Du lich nui";
+//         }
+//         else {
+//             return "Du lich bien";
+//         }
+//     }
+//     if (goodWeather && budget < 5000) {
+//         return "Kham pha dia phuong";
+//     }
+// }
+
+// Cách viết ngắn gọn hơn với toán tử logic:
+
+// function determineTravelPlan(goodWeather, budget, loveAdventure) {
+//     if (!goodWeather) {
+//         return "O nha xem phim";
+//     }
+//     if (goodWeather && budget >= 5000) {
+//         return loveAdventure ? "Du lich nui" : "Du lich bien";
+//     }
+//     if (goodWeather && budget < 5000) {
+//         return "Kham pha dia phuong";
+//     }
+// }
+
+// Cách viết ngắn gọn hơn với toán tử logic:
+
+// function determineTravelPlan(goodWeather, budget, loveAdventure) {
+//     if (!goodWeather) {
+//         return "O nha xem phim";
+//     }
+//     if (budget >= 5000) {
+//         return loveAdventure ? "Du lich nui" : "Du lich bien";
+//     }
+//     return "Kham pha dia phuong";
+// }
+
+// console.log(determineTravelPlan(true, 6000, true));
+// console.log(determineTravelPlan(true, 6000, false));
+// console.log(determineTravelPlan(true, 3000, false));
+// console.log(determineTravelPlan(false, 3000, false));
+// console.log(determineTravelPlan(false, 6000, false));
+// console.log(determineTravelPlan(false, 6000, true));
+
+// ----------------------------------------------------------------------------------------------
+
+// function determineStudentCategory(score, attendanceRate) {
+//     // 1. Kiểm tra điều kiện tiên quyết (Vắng > 50%)
+//     if (attendanceRate < 0.5) {
+//         return "Cần cải thiện";
+//     }
+//     // 2. Kiểm tra Xuất sắc
+//     if (score >= 90) {
+//         return "Xuất sắc";
+//     }
+//     // 3. Kiểm tra Giỏi
+//     if (score >= 75 && attendanceRate >= 0.7) {
+//         return "Giỏi";
+//     }
+//     // 4. Kiểm tra Khá
+//     if (score >= 60 && attendanceRate >= 0.6) {
+//         return "Khá";
+//     }
+//     // 5. Các trường hợp còn lại là Trung bình
+//     // (Bao gồm score < 60 HOẶC attendanceRate < 0.6 do các điều kiện trên đã loại trừ)
+//     return "Trung bình";
+// }
+
+// console.log(determineStudentCategory(92, 0.85)); // Xuat Sac
+// console.log(determineStudentCategory(80, 0.75));// Gioi
+// console.log(determineStudentCategory(60, 0.65));// Kha
+// console.log(determineStudentCategory(50, 0.65));// Trung binh
+// console.log(determineStudentCategory(60, 0.5));//Trung binh
+// console.log(determineStudentCategory(90, 0.4));// Can cai thien
+// console.log(determineStudentCategory(59, 0.7));// Trung binh
+
+// ----------------------------------------------------------------------------------------------
+
+// function hasAccsessToWorkroom(isManager, hasKeycard, finishedTraining) {
+//     if (isManager){
+//         return true; // Quản lý luôn có quyền truy cập
+//     }
+//     if (!isManager && (hasKeycard && finishedTraining)) {
+//         return true; // Nhân viên có thẻ từ và đã hoàn thành đào tạo
+//     }
+//     return false; // Các trường hợp còn lại không có quyền truy cập
+// }
+
+// Cách viết ngắn gọn hơn với toán tử logic:
+
+// function hasAccsessToWorkroom(isManager, hasKeycard, finishedTraining) {
+//     return isManager || (hasKeycard && finishedTraining);
+// }
+
+
+// console.log(hasAccsessToWorkroom(true, true, true));    //true
+// console.log(hasAccsessToWorkroom(true, false, true));   //true
+// console.log(hasAccsessToWorkroom(true, false, false));  //true
+// console.log(hasAccsessToWorkroom(false, true, true));   //true
+// console.log(hasAccsessToWorkroom(false, false, true));  //false
+// console.log(hasAccsessToWorkroom(false, true, false));  //false
