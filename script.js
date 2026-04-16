@@ -606,3 +606,39 @@ console.log = function (...args) {
 // console.log(hasAccsessToWorkroom(false, true, true));   //true
 // console.log(hasAccsessToWorkroom(false, false, true));  //false
 // console.log(hasAccsessToWorkroom(false, true, false));  //false
+
+// ----------------------------------------------------------------------------------------------
+
+function calculateFlightTicket(basePrice, age, hasMemberCard, isHoliday) {
+    let finalPrice = basePrice;
+
+    // Bước 1: Tính giảm giá theo độ tuổi
+    // Code của bạn ở đây...
+    if (age < 6) {
+        finalPrice = 0; // Trẻ em dưới 6 tuổi miễn phí
+    }
+    if (age >= 6 && age <= 12) {
+        finalPrice *= 0.5; // Giảm 50% cho trẻ em từ 6-12 tuổi
+    }
+    if (age > 60) {
+        finalPrice *= 0.7; // Giảm 30% cho người già trên 60 tuổi
+    }
+    // Bước 2: Giảm giá thành viên (5%)
+    // Lưu ý: Chỉ giảm trên số tiền còn lại sau bước 1
+    // Code của bạn ở đây...
+    if (hasMemberCard === true) {
+        finalPrice *= 0.95; // Giảm 5% cho thành viên
+    }
+    // Bước 3: Tính phụ phí ngày lễ (25%)
+    // Code của bạn ở đây...
+    if (isHoliday === true) {
+        finalPrice *= 1.25; // Tăng 25% vào ngày lễ
+    }
+    return finalPrice;
+}
+
+// Chạy thử kiểm tra:
+console.log(calculateFlightTicket(1000, 10, true, false)); // Kỳ vọng: 475 (Giảm 50% còn 500, giảm tiếp 5% của 500)
+console.log(calculateFlightTicket(1000, 4, false, true));  // Kỳ vọng: 0 (Trẻ em dưới 6 tuổi miễn phí)
+console.log(calculateFlightTicket(1000, 25, false, true)); // Kỳ vọng: 1250 (Người lớn, ngày lễ tăng 25%)
+console.log(calculateFlightTicket(12000, 7, true, true)); // 
