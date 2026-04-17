@@ -187,41 +187,41 @@ console.log = function (...args) {
 
 // ----------------------------------------------------------------------------------------------
 
-function thanhToan(gioHang, maGiamGia)  {
-    let tongTien = 0;
-    let quaTang = "Khong co qua tang";
+// function thanhToan(gioHang, maGiamGia)  {
+//     let tongTien = 0;
+//     let quaTang = "Khong co qua tang";
     
-    for (let i = 0; i < gioHang.length; i++)    {
-        tongTien += gioHang[i];
-    }
+//     for (let i = 0; i < gioHang.length; i++)    {
+//         tongTien += gioHang[i];
+//     }
 
-    switch(maGiamGia)   {
-        case "GIAM20%":
-            tongTien = tongTien*0.8;
-            break;
-        case "FREESHIP":
-            tongTien = tongTien - 30000;
-            break;
-        default:
-            break;
-    }
+//     switch(maGiamGia)   {
+//         case "GIAM20%":
+//             tongTien = tongTien*0.8;
+//             break;
+//         case "FREESHIP":
+//             tongTien = tongTien - 30000;
+//             break;
+//         default:
+//             break;
+//     }
 
-    if (tongTien >= 500000) {
-        quaTang = "Phieu mua hang 50.000VND";
-    }
+//     if (tongTien >= 500000) {
+//         quaTang = "Phieu mua hang 50.000VND";
+//     }
 
-    if (tongTien <= 30000)  {
-        tongTien = 0;
-    }
+//     if (tongTien <= 30000)  {
+//         tongTien = 0;
+//     }
 
-    return `-----Hoa Don Cua Ban-----
-    Tổng tiền thanh toán: ${tongTien.toLocaleString()} VNĐ    
-    Ma giam gia: ${maGiamGia || "Khong Co"}
-    Quan tang: ${quaTang}
-    -----Cam on quy khach----- `;
-}
-const myCart = [150000, 200000, 300000, 50000]; // Tổng 700k
-console.log(thanhToan(myCart, "GIAM20%"));
-console.log(thanhToan([5000000], "GIAM20%"));
+//     return `-----Hoa Don Cua Ban-----
+//     Tổng tiền thanh toán: ${tongTien.toLocaleString()} VNĐ    
+//     Ma giam gia: ${maGiamGia || "Khong Co"}
+//     Quan tang: ${quaTang}
+//     -----Cam on quy khach----- `;
+// }
+// const myCart = [150000, 200000, 300000, 50000]; // Tổng 700k
+// console.log(thanhToan(myCart, "GIAM20%"));
+// console.log(thanhToan([5000000], "GIAM20%"));
 
-
+//----------------------------------------------------------------------------------------------
