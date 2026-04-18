@@ -642,3 +642,5 @@ console.log(calculateFlightTicket(1000, 10, true, false)); // Kỳ vọng: 475 (
 console.log(calculateFlightTicket(1000, 4, false, true));  // Kỳ vọng: 0 (Trẻ em dưới 6 tuổi miễn phí)
 console.log(calculateFlightTicket(1000, 25, false, true)); // Kỳ vọng: 1250 (Người lớn, ngày lễ tăng 25%)
 console.log(calculateFlightTicket(12000, 7, true, true)); // 
+
+//Hom nay off, mai lam tiep nha ong!
