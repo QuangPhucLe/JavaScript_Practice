@@ -224,6 +224,7 @@ console.log = function (...args) {
 // console.log(thanhToan(myCart, "GIAM20%"));
 // console.log(thanhToan([5000000], "GIAM20%"));
 
+
 //----------------------------------------------------------------------------------------------
 
 
@@ -679,3 +680,9 @@ fruitBasket.forEach(fruit => {
         console.log("- " + fruit.name);
     }
 });
+// Chạy thử kiểm tra:
+console.log(calculateFlightTicket(1000, 10, true, false)); // Kỳ vọng: 475 (Giảm 50% còn 500, giảm tiếp 5% của 500)
+console.log(calculateFlightTicket(1000, 4, false, true));  // Kỳ vọng: 0 (Trẻ em dưới 6 tuổi miễn phí)
+console.log(calculateFlightTicket(1000, 25, false, true)); // Kỳ vọng: 1250 (Người lớn, ngày lễ tăng 25%)
+console.log(calculateFlightTicket(12000, 7, true, true)); // 
+
