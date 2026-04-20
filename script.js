@@ -686,3 +686,41 @@ console.log(calculateFlightTicket(1000, 4, false, true));  // Kỳ vọng: 0 (Tr
 console.log(calculateFlightTicket(1000, 25, false, true)); // Kỳ vọng: 1250 (Người lớn, ngày lễ tăng 25%)
 console.log(calculateFlightTicket(12000, 7, true, true)); // 
 
+//----------------------------------------------------------------------------------------------
+// 1. Global Scope: Biến có thể được truy cập ở bất cứ đâu
+const globalVar = "Tôi là Global";
+
+function scopeExample() {
+    // 2. Function Scope: Biến chỉ tồn tại bên trong hàm này
+    const functionVar = "Tôi là Function Scope";
+
+    if (true) {
+        // 3. Block Scope: Biến chỉ tồn tại trong cặp ngoặc nhọn { } này
+        // Lưu ý: Chỉ áp dụng với let và const. 'var' sẽ bị "leak" ra ngoài block.
+        const blockVar = "Tôi là Block Scope";
+        
+        console.log(globalVar);   // ✅ OK
+        console.log(functionVar); // ✅ OK
+        console.log(blockVar);    // ✅ OK
+    }
+
+    console.log("--- Bên ngoài Block ---");
+    console.log(globalVar);      // ✅ OK
+    console.log(functionVar);    // ✅ OK
+    
+    try {
+        console.log(blockVar);   // ❌ Lỗi: blockVar is not defined
+    } catch (e) {
+        console.log("Không thể truy cập blockVar từ bên ngoài block!");
+    }
+}
+
+scopeExample();
+
+console.log("--- Bên ngoài Hàm ---");
+console.log(globalVar);          // ✅ OK
+try {
+    console.log(functionVar);    // ❌ Lỗi: functionVar is not defined
+} catch (e) {
+    console.log("Không thể truy cập functionVar từ bên ngoài hàm!");
+}
