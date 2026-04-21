@@ -645,3 +645,129 @@ console.log = function (...args) {
 // console.log(calculateFlightTicket(1000, 25, false, true)); // Kỳ vọng: 1250 (Người lớn, ngày lễ tăng 25%)
 // console.log(calculateFlightTicket(12000, 7, true, true)); // 
 // ----------------------------------------------------------------------------------------------
+
+// // Chạy thử kiểm tra:
+// console.log(calculateFlightTicket(1000, 10, true, false)); // Kỳ vọng: 475 (Giảm 50% còn 500, giảm tiếp 5% của 500)
+// console.log(calculateFlightTicket(1000, 4, false, true));  // Kỳ vọng: 0 (Trẻ em dưới 6 tuổi miễn phí)
+// console.log(calculateFlightTicket(1000, 25, false, true)); // Kỳ vọng: 1250 (Người lớn, ngày lễ tăng 25%)
+// console.log(calculateFlightTicket(12000, 7, true, true)); // 
+
+
+//Hom nay off, mai lam tiep nha ong!
+// 1. Khởi tạo mảng trống
+// let fruitBasket = [];
+
+// // 2. Thêm dữ liệu vào mảng bằng .push()
+// fruitBasket.push({ name: "Apple", color: "Red", quantity: 5 });
+// fruitBasket.push({ name: "Banana", color: "Yellow", quantity: 10 });
+// fruitBasket.push({ name: "Mango", color: "Yellow", quantity: 3 });
+
+// // 3. Hàm tính tổng số lượng trái cây
+// function getTotalFruits(basket) {
+//     let total = 0; // Biến tích lũy để cộng dồn
+
+//     for (let i = 0; i < basket.length; i++) {
+//         // basket[i] là từng đối tượng trái cây
+//         // basket[i].quantity là con số ta cần lấy ra
+//         total += basket[i].quantity; 
+//     }
+
+//     return total;
+// }
+
+// // 4. Hiển thị kết quả
+// const result = getTotalFruits(fruitBasket);
+// console.log("Tổng số trái cây trong giỏ là: " + result);
+
+// // --- Phần thử thách thêm: Tìm trái cây màu vàng ---
+// console.log("Các loại trái cây màu vàng là:");
+// fruitBasket.forEach(fruit => {
+//     if (fruit.color === "Yellow") {
+//         console.log("- " + fruit.name);
+//     }
+// });
+// // Chạy thử kiểm tra:
+// console.log(calculateFlightTicket(1000, 10, true, false)); // Kỳ vọng: 475 (Giảm 50% còn 500, giảm tiếp 5% của 500)
+// console.log(calculateFlightTicket(1000, 4, false, true));  // Kỳ vọng: 0 (Trẻ em dưới 6 tuổi miễn phí)
+// console.log(calculateFlightTicket(1000, 25, false, true)); // Kỳ vọng: 1250 (Người lớn, ngày lễ tăng 25%)
+// console.log(calculateFlightTicket(12000, 7, true, true)); // 
+
+//----------------------------------------------------------------------------------------------
+// // 1. Global Scope: Biến có thể được truy cập ở bất cứ đâu
+// const globalVar = "Tôi là Global";
+
+// function scopeExample() {
+//     // 2. Function Scope: Biến chỉ tồn tại bên trong hàm này
+//     const functionVar = "Tôi là Function Scope";
+
+//     if (true) {
+//         // 3. Block Scope: Biến chỉ tồn tại trong cặp ngoặc nhọn { } này
+//         // Lưu ý: Chỉ áp dụng với let và const. 'var' sẽ bị "leak" ra ngoài block.
+//         const blockVar = "Tôi là Block Scope";
+        
+//         console.log(globalVar);   // ✅ OK
+//         console.log(functionVar); // ✅ OK
+//         console.log(blockVar);    // ✅ OK
+//     }
+
+//     console.log("--- Bên ngoài Block ---");
+//     console.log(globalVar);      // ✅ OK
+//     console.log(functionVar);    // ✅ OK
+    
+//     try {
+//         console.log(blockVar);   // ❌ Lỗi: blockVar is not defined
+//     } catch (e) {
+//         console.log("Không thể truy cập blockVar từ bên ngoài block!");
+//     }
+// }
+
+// scopeExample();
+
+// console.log("--- Bên ngoài Hàm ---");
+// console.log(globalVar);          // ✅ OK
+// try {
+//     console.log(functionVar);    // ❌ Lỗi: functionVar is not defined
+// } catch (e) {
+//     console.log("Không thể truy cập functionVar từ bên ngoài hàm!");
+// }
+
+//----------------------------------------------------------------------------------------------
+// Roman to interger
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var romanToInt = function(s) {
+    // 1. Tạo bảng tra cứu giá trị
+    const romanMap = {
+        'I': 1,
+        'V': 5,
+        'X': 10,
+        'L': 50,
+        'C': 100,
+        'D': 500,
+        'M': 1000
+    };
+
+    let total = 0;
+
+    for (let i = 0; i < s.length; i++) {
+        let currentVal = romanMap[s[i]];
+        let nextVal = romanMap[s[i + 1]];
+
+        // 2. Kiểm tra quy tắc trừ
+        if (nextVal > currentVal) {
+            // Nếu số sau lớn hơn số trước, ta trừ số hiện tại
+            total -= currentVal;
+        } else {
+            // Ngược lại, ta cộng bình thường
+            total += currentVal;
+        }
+    }
+
+    return total;
+};
+
+// Kiểm tra thử
+console.log(romanToInt("LVIII"));   // Kết quả: 58
+console.log(romanToInt("MCMXCIV")); // Kết quả: 1994
