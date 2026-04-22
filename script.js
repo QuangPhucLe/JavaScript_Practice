@@ -21,7 +21,7 @@ console.log = function (...args) {
 // console.log("Bai 1");
 // function bmi(kg,m)  {
 //     return kg / (m*2);
-// }
+// 
 // console.log("BMI cua ban la " + bmi(75,1.75));
 // ----------------------------------------------------------------------------------------------
 
@@ -733,41 +733,149 @@ console.log = function (...args) {
 
 //----------------------------------------------------------------------------------------------
 // Roman to interger
-/**
- * @param {string} s
- * @return {number}
- */
-var romanToInt = function(s) {
-    // 1. Tạo bảng tra cứu giá trị
-    const romanMap = {
-        'I': 1,
-        'V': 5,
-        'X': 10,
-        'L': 50,
-        'C': 100,
-        'D': 500,
-        'M': 1000
-    };
+// var romanToInt = function(s) {
+//     // 1. Tạo bảng tra cứu giá trị
+//     const romanMap = {
+//         'I': 1,
+//         'V': 5,
+//         'X': 10,
+//         'L': 50,
+//         'C': 100,
+//         'D': 500,
+//         'M': 1000
+//     };
 
-    let total = 0;
+//     let total = 0;
 
-    for (let i = 0; i < s.length; i++) {
-        let currentVal = romanMap[s[i]];
-        let nextVal = romanMap[s[i + 1]];
+//     for (let i = 0; i < s.length; i++) {
+//         let currentVal = romanMap[s[i]];
+//         let nextVal = romanMap[s[i + 1]];
 
-        // 2. Kiểm tra quy tắc trừ
-        if (nextVal > currentVal) {
-            // Nếu số sau lớn hơn số trước, ta trừ số hiện tại
-            total -= currentVal;
-        } else {
-            // Ngược lại, ta cộng bình thường
-            total += currentVal;
-        }
+//         // 2. Kiểm tra quy tắc trừ
+//         if (nextVal > currentVal) {
+//             // Nếu số sau lớn hơn số trước, ta trừ số hiện tại
+//             total -= currentVal;
+//         } else {
+//             // Ngược lại, ta cộng bình thường
+//             total += currentVal;
+//         }
+//     }
+
+//     return total;
+// };
+
+// // Kiểm tra thử
+// console.log(romanToInt("LVIII"));   // Kết quả: 58
+// console.log(romanToInt("MCMXCIV")); // Kết quả: 1994
+
+//----------------------------------------------------------------------------------------------
+
+// function createUser(name, age)  {
+//     return {
+//         name: name,
+//         age: age,
+//     }
+// }
+// const user1 = createUser("Quang Phuc", 23)
+// console.log(user1);
+
+//----------------------------------------------------------------------------------------------
+
+// import { createArrayFromArgs } from "./function.js";
+
+// const array1 = createArrayFromArgs(true, "Quang Phuc", 23)
+// console.log(array1);
+
+// const array2 = createArrayFromArgs(null, [1,2,3], {name: "Nguyen Van A", age: "23"});
+// console.log(array2);
+ 
+// ---------------------------------------------------------------------------------------------
+
+
+import{
+    isString,
+    isNumber,
+    isBigInt,
+    isBoolean,
+    isNull,
+    isUndefined,
+    isSymbol,
+    isObject,
+    isArray,
+    isFunction,
+
+} from "./function.js";
+
+// console.log(isString("Hello"));
+// console.log(isNumber(123));
+// console.log(isBigInt(0));
+// console.log(isBoolean(false));
+// console.log(isNull(null));
+// console.log(isUndefined(undefined));
+// console.log(isSymbol(Symbol));
+// console.log(isObject({name: "QuangPhuc"}));
+// console.log(isArray([1,2,3,4]));
+// console.log(isFunction());
+
+// -----------------------------------------------------------------------------
+
+// function welcomeUser(name)  {
+//     if (isString(name)) {
+//         return `Chao Mung Ban ${name}`;
+//     }
+//     return "Ten khong hop le";
+// }
+
+// console.log(welcomeUser("Nguyen Van A"));
+// console.log(welcomeUser("Nguyen A"));
+// console.log(welcomeUser(123));
+//-----------------------------------------------------------------------------
+// function caculateAge(currenrtYear, birthYear){
+//     if (isNumber(currenrtYear) && isNumber(birthYear)){
+//         return currenrtYear - birthYear;
+//     }
+//     return -1
+// }
+// console.log(caculateAge(2024, 2000));
+// console.log(caculateAge(2024, 2020));
+// console.log(caculateAge(2024, "2020"));
+// console.log(caculateAge(2024, NaN));
+// console.log(caculateAge(NaN, 2020));
+
+//-----------------------------------------------------------------------------
+ 
+// function getElementAtIndex(array, index)    {
+//     if (!isArray(array) || !isNumber(index) || index < 0) {
+//         return null
+//     }
+//     return array[index] 
+// }
+
+// console.log(getElementAtIndex([1, 2], 1));
+// console.log(getElementAtIndex(["red", "blue"], 0));
+// console.log(getElementAtIndex({name: "John"}, 0));
+// console.log(getElementAtIndex([1, 2], -1));
+// console.log(getElementAtIndex([1, 2], "1"));
+
+//  -----------------------------------------------------------------------------
+
+function checkEmpty(value){
+    if (isNull(value) || isUndefined(value)){
+        return "Empty";
     }
+    return "Full"
+}
 
-    return total;
-};
+console.log(checkEmpty(null));
+console.log(checkEmpty(undefined));
+console.log(checkEmpty());
+console.log(checkEmpty(1,2,3));
+console.log(checkEmpty([]));
 
-// Kiểm tra thử
-console.log(romanToInt("LVIII"));   // Kết quả: 58
-console.log(romanToInt("MCMXCIV")); // Kết quả: 1994
+
+
+
+
+
+
+
