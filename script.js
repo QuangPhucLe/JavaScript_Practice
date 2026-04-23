@@ -859,23 +859,96 @@ import{
 
 //  -----------------------------------------------------------------------------
 
-function checkEmpty(value){
-    if (isNull(value) || isUndefined(value)){
-        return "Empty";
-    }
-    return "Full"
-}
+// function checkEmpty(value){
+//     if (isNull(value) || isUndefined(value)){
+//         return "Empty";
+//     }
+//     return "Full"
+// }
 
-console.log(checkEmpty(null));
-console.log(checkEmpty(undefined));
-console.log(checkEmpty());
-console.log(checkEmpty(1,2,3));
-console.log(checkEmpty([]));
+// console.log(checkEmpty(null));
+// console.log(checkEmpty(undefined));
+// console.log(checkEmpty());
+// console.log(checkEmpty(1,2,3));
+// console.log(checkEmpty([]));
+
+//-----------------------------------------------------------------------------
+// ------------------------------ Ôn tập --------------------------------------
+//-----------------------------------------------------------------------------
+//Bài toán này sẽ kết hợp: Biến, Hàm, Template Strings, Câu lệnh điều kiện, Toán tử Logical và Scope.
 
 
+// // 1. Khai báo biến với ES6 (const/let)
+// const schoolName = "Van Lang University"; 
+
+// /**
+//  * 2. Hàm tính toán và xếp loại
+//  * @param {string} name - Tên sinh viên
+//  * @param {number} score - Điểm số (0-10)
+//  */
+// const evaluateStudent = (name, score) => {
+//     // 3. Phạm vi (Block Scope): Biến 'result' chỉ tồn tại trong hàm này
+//     let grade = "";
+//     let status = "";
+
+//     // 4. Câu lệnh điều kiện & Toán tử Logical
+//     if (score >= 8.5 && score <= 10) {
+//         grade = "Giỏi";
+//         status = "Xuất sắc";
+//     } else if (score >= 6.5 && score < 8.5) {
+//         grade = "Khá";
+//         status = "Tốt";
+//     } else if (score >= 5 && score < 6.5) {
+//         grade = "Trung bình";
+//         status = "Cần cố gắng";
+//     } else if (score >= 0 && score < 5) {
+//         grade = "Yếu";
+//         status = "Học lại";
+//     } else {
+//         return "Dữ liệu điểm không hợp lệ!";
+//     }
+
+//     // 5. Nối chuỗi & Nội suy (Template Strings - ES6)
+//     const message = `Sinh viên: ${name.toUpperCase()} 
+// Trường: ${schoolName}
+// Xếp loại: ${grade} (${status})`;
+
+//     return message;
+// };
+
+// // 6. Thực thi hàm
+// console.log(evaluateStudent("Q.Phúc", 9.0));
+// console.log(evaluateStudent("Nguyễn Văn A", 4.5));
+
+//-----------------------------------------------------------------------------
+//Yêu cầu: Viết một hàm tính tiền lương nhân viên.
+//Đầu vào: luongCoBan (số), gioLam (số).
+//Nếu gioLam > 160, nhân viên được thưởng thêm 10% tổng lương.
+//Sử dụng Template Strings để in ra thông báo: "Nhân viên [Tên] 
+//làm được [số giờ] giờ, nhận tổng lương là: [số tiền] VNĐ".
+
+const calculateStaffSalary = (name, luongCoBan, gioLam) => {
+    let salaryTotal = luongCoBan * gioLam; 
+    //const salaryEstimate = luongCoBan * gioLam;
+
+    // Sử dụng Ternary Operator để gán giá trị trực tiếp
+    // salaryTotal = gioLam > 160 
+    //     ? salaryEstimate * 1.1 
+    //     : salaryEstimate;
+
+    salaryTotal = gioLam > 160 
+    ? salaryTotal * 1.1
+    : salaryTotal;
 
 
+    // Template Strings (Sử dụng .toLocaleString() để định dạng tiền tệ)
+    const message = `Nhân viên: ${name} 
+Làm được: ${gioLam} giờ
+Nhận tổng lương là: ${salaryTotal.toLocaleString()} VNĐ`;
 
+    return message; 
+};
 
+console.log(calculateStaffSalary("Q.Phúc", 500000, 180));
 
 
