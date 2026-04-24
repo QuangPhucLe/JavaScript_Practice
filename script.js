@@ -927,28 +927,34 @@ import{
 //Sử dụng Template Strings để in ra thông báo: "Nhân viên [Tên] 
 //làm được [số giờ] giờ, nhận tổng lương là: [số tiền] VNĐ".
 
-const calculateStaffSalary = (name, luongCoBan, gioLam) => {
-    let salaryTotal = luongCoBan * gioLam; 
-    //const salaryEstimate = luongCoBan * gioLam;
+// const calculateStaffSalary = (name, luongCoBan, gioLam) => {
+//     let salaryTotal = luongCoBan * gioLam; 
+//     //const salaryEstimate = luongCoBan * gioLam;
 
-    // Sử dụng Ternary Operator để gán giá trị trực tiếp
-    // salaryTotal = gioLam > 160 
-    //     ? salaryEstimate * 1.1 
-    //     : salaryEstimate;
+//     // Sử dụng Ternary Operator để gán giá trị trực tiếp
+//     // salaryTotal = gioLam > 160 
+//     //     ? salaryEstimate * 1.1 
+//     //     : salaryEstimate;
 
-    salaryTotal = gioLam > 160 
-    ? salaryTotal * 1.1
-    : salaryTotal;
+//     salaryTotal = gioLam > 160 
+//     ? salaryTotal * 1.1
+//     : salaryTotal;
 
 
-    // Template Strings (Sử dụng .toLocaleString() để định dạng tiền tệ)
-    const message = `Nhân viên: ${name} 
-Làm được: ${gioLam} giờ
-Nhận tổng lương là: ${salaryTotal.toLocaleString()} VNĐ`;
+//     // Template Strings (Sử dụng .toLocaleString() để định dạng tiền tệ)
+//     const message = `Nhân viên: ${name} 
+// Làm được: ${gioLam} giờ
+// Nhận tổng lương là: ${salaryTotal.toLocaleString()} VNĐ`;
 
-    return message; 
-};
+//     return message; 
+// };
 
-console.log(calculateStaffSalary("Q.Phúc", 500000, 180));
+// console.log(calculateStaffSalary("Q.Phúc", 500000, 180));
 
+//-----------------------------------------------------------------------------
+
+let fruit = ["apple", "banana"]
+let newFruit = fruit.push("cherry")
+
+ 
 

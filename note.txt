@@ -1,0 +1,16 @@
+- Các phương thức của mảng 
+- push() thêm phần tử cuối mảng (làm thay đổi mảng gốc)
+- pop() xóa phần tử cuối mảng (làm thay đổi mảng gốc)
+- unshift() thêm phần tử đầu mảng (làm thay đổi mảng gốc)
+- shift() xóa phần tử đầu mảng (làm thay đổi mảng gốc)
+- indexOf() tìm từ đầu mảng
+- lastIndexOf() tìm từ cuối mảng
+- includes() kiểm tra tồn tại trong mảng 
+- join() chuyển mảng thành chuỗi có dấu ngăn cách
+- reverse() đảo ngược mảng (làm thay đổi mảng gốc)
+- toString() chuyển mảng thành chuỗi
+- slice() sao chép mảng mới từ mảng gốc 
+- splice() thêm, xóa, phần tử bất kì trong mảng (làm thay đổi mảng gốc)
+- concat() nối 2 hoặc nhiều mảng lại với nhau 
+- flat() làm phẳng mảng
+- forEach() duyệt qua và thực hiện một hàm trên mỗi phần tử của mảng 
