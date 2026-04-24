@@ -921,11 +921,11 @@ import{
 // console.log(evaluateStudent("Nguyễn Văn A", 4.5));
 
 //-----------------------------------------------------------------------------
-//Yêu cầu: Viết một hàm tính tiền lương nhân viên.
-//Đầu vào: luongCoBan (số), gioLam (số).
-//Nếu gioLam > 160, nhân viên được thưởng thêm 10% tổng lương.
-//Sử dụng Template Strings để in ra thông báo: "Nhân viên [Tên] 
-//làm được [số giờ] giờ, nhận tổng lương là: [số tiền] VNĐ".
+// Yêu cầu: Viết một hàm tính tiền lương nhân viên.
+// Đầu vào: luongCoBan (số), gioLam (số).
+// Nếu gioLam > 160, nhân viên được thưởng thêm 10% tổng lương.
+// Sử dụng Template Strings để in ra thông báo: "Nhân viên [Tên] 
+// làm được [số giờ] giờ, nhận tổng lương là: [số tiền] VNĐ".
 
 // const calculateStaffSalary = (name, luongCoBan, gioLam) => {
 //     let salaryTotal = luongCoBan * gioLam; 
@@ -953,8 +953,50 @@ import{
 
 //-----------------------------------------------------------------------------
 
-let fruit = ["apple", "banana"]
-let newFruit = fruit.push("cherry")
 
- 
+// function convertDataType(value, type)   {
+//     switch(type){
+//         case 'number':
+//             return Number(value);
+//         case 'string':
+//             return String(value);
+//         case 'boolean':
+//             return Boolean(value);
+//         default:
+//             return 'Invalid type';
+//     }
+// }
+
+// console.log(typeof convertDataType("12233434324", 'string'))
+
+//-----------------------------------------------------------------------------
+function caculate(a, b, operator)   {
+    const c = Number(a);
+    const d = Number(b);
+
+    if (isNaN(c) || isNaN(d)){
+        return 'Invalid input number'
+    }
+
+    switch(operator){
+        case 'add':
+            return c + d;
+        case 'subtract':
+            return c - d;
+        case 'multiply':
+            return c * d;
+        case 'multiply':
+            return d !== 0 ? c / d : "cannot devide by zero"
+        default:
+            return 'Invalid operator';
+    }
+}
+
+console.log(caculate("5", "3", "add"));      // 8
+console.log(caculate("5", "3", "subtract")); // 2
+console.log(caculate("5", "3", "multiply")); // 15
+console.log(caculate("5", "0", "divide"));   // Cannot divide by zero
+console.log(caculate("five", "3", "add"));   // Invalid input number
+console.log(caculate("5", "three", "add"));  // Invalid input number
+console.log(caculate("5", "3", "modulus"));  // Invalid operator
 
