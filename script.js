@@ -970,33 +970,36 @@ import{
 // console.log(typeof convertDataType("12233434324", 'string'))
 
 //-----------------------------------------------------------------------------
-function caculate(a, b, operator)   {
-    const c = Number(a);
-    const d = Number(b);
+// function caculate(a, b, operator)   {
+//     const c = Number(a);
+//     const d = Number(b);
 
-    if (isNaN(c) || isNaN(d)){
-        return 'Invalid input number'
-    }
+//     if (isNaN(c) || isNaN(d)){
+//         return 'Invalid input number'
+//     }
 
-    switch(operator){
-        case 'add':
-            return c + d;
-        case 'subtract':
-            return c - d;
-        case 'multiply':
-            return c * d;
-        case 'multiply':
-            return d !== 0 ? c / d : "cannot devide by zero"
-        default:
-            return 'Invalid operator';
-    }
-}
+//     switch(operator){
+//         case 'add':
+//             return c + d;
+//         case 'subtract':
+//             return c - d;
+//         case 'multiply':
+//             return c * d;
+//         case 'multiply':
+//             return d !== 0 ? c / d : "cannot devide by zero"
+//         default:
+//             return 'Invalid operator';
+//     }
+// }
 
-console.log(caculate("5", "3", "add"));      // 8
-console.log(caculate("5", "3", "subtract")); // 2
-console.log(caculate("5", "3", "multiply")); // 15
-console.log(caculate("5", "0", "divide"));   // Cannot divide by zero
-console.log(caculate("five", "3", "add"));   // Invalid input number
-console.log(caculate("5", "three", "add"));  // Invalid input number
-console.log(caculate("5", "3", "modulus"));  // Invalid operator
+// console.log(caculate("5", "3", "add"));      // 8
+// console.log(caculate("5", "3", "subtract")); // 2
+// console.log(caculate("5", "3", "multiply")); // 15
+// console.log(caculate("5", "0", "divide"));   // Cannot divide by zero
+// console.log(caculate("five", "3", "add"));   // Invalid input number
+// console.log(caculate("5", "three", "add"));  // Invalid input number
+// console.log(caculate("5", "3", "modulus"));  // Invalid operator
 
+//-----------------------------------------------------------------------------
+
+// Hom nay off 25/04/2026
