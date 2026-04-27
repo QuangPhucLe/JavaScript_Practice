@@ -1005,3 +1005,39 @@ import{
 // Hom nay off 25/04/2026
 // Hom nay off 26/04/2026
 // Hom nay off 27/04/2026
+
+// 1. Khởi tạo danh sách sản phẩm
+let products = [
+    { id: 1, name: "iPhone 15", price: 2000, category: "Tech" },
+    { id: 2, name: "Macbook M3", price: 3500, category: "Tech" },
+    { id: 3, name: "Mechanical Keyboard", price: 150, category: "Accessories" }
+];
+
+// 2. Hàm thêm sản phẩm mới (Sử dụng ES6 Spread Operator)
+const addProduct = (newProduct) => {
+    products = [...products, newProduct];
+    console.log(`Đã thêm: ${newProduct.name}`);
+};
+
+// 3. Hàm lọc sản phẩm theo danh mục (Sử dụng Filter)
+const getProductsByCategory = (category) => {
+    return products.filter(product => product.category === category);
+};
+
+// 4. Hàm giảm giá cho tất cả sản phẩm (Sử dụng Map)
+const applyDiscount = (percent) => {
+    const discountFactor = (100 - percent) / 100;
+    
+    return products.map(product => ({
+        ...product,
+        price: product.price * discountFactor
+    }));
+};
+
+// --- CHẠY THỬ ---
+addProduct({ id: 4, name: "Logitech Mouse", price: 80, category: "Accessories" });
+
+console.log("Sản phẩm Tech:", getProductsByCategory("Tech"));
+
+const discountedProducts = applyDiscount(10); // Giảm giá 10%
+console.log("Danh sách sau khi giảm giá:", discountedProducts);
