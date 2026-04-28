@@ -1007,37 +1007,70 @@ import{
 // Hom nay off 27/04/2026
 
 // 1. Khởi tạo danh sách sản phẩm
-let products = [
-    { id: 1, name: "iPhone 15", price: 2000, category: "Tech" },
-    { id: 2, name: "Macbook M3", price: 3500, category: "Tech" },
-    { id: 3, name: "Mechanical Keyboard", price: 150, category: "Accessories" }
-];
+// let products = [
+//     { id: 1, name: "iPhone 15", price: 2000, category: "Tech" },
+//     { id: 2, name: "Macbook M3", price: 3500, category: "Tech" },
+//     { id: 3, name: "Mechanical Keyboard", price: 150, category: "Accessories" }
+// ];
 
-// 2. Hàm thêm sản phẩm mới (Sử dụng ES6 Spread Operator)
-const addProduct = (newProduct) => {
-    products = [...products, newProduct];
-    console.log(`Đã thêm: ${newProduct.name}`);
-};
+// // 2. Hàm thêm sản phẩm mới (Sử dụng ES6 Spread Operator)
+// const addProduct = (newProduct) => {
+//     products = [...products, newProduct];
+//     console.log(`Đã thêm: ${newProduct.name}`);
+// };
 
-// 3. Hàm lọc sản phẩm theo danh mục (Sử dụng Filter)
-const getProductsByCategory = (category) => {
-    return products.filter(product => product.category === category);
-};
+// // 3. Hàm lọc sản phẩm theo danh mục (Sử dụng Filter)
+// const getProductsByCategory = (category) => {
+//     return products.filter(product => product.category === category);
+// };
 
-// 4. Hàm giảm giá cho tất cả sản phẩm (Sử dụng Map)
-const applyDiscount = (percent) => {
-    const discountFactor = (100 - percent) / 100;
+// // 4. Hàm giảm giá cho tất cả sản phẩm (Sử dụng Map)
+// const applyDiscount = (percent) => {
+//     const discountFactor = (100 - percent) / 100;
     
-    return products.map(product => ({
-        ...product,
-        price: product.price * discountFactor
-    }));
+//     return products.map(product => ({
+//         ...product,
+//         price: product.price * discountFactor
+//     }));
+// };
+
+// // --- CHẠY THỬ ---
+// addProduct({ id: 4, name: "Logitech Mouse", price: 80, category: "Accessories" });
+
+// console.log("Sản phẩm Tech:", getProductsByCategory("Tech"));
+
+// const discountedProducts = applyDiscount(10); // Giảm giá 10%
+// console.log("Danh sách sau khi giảm giá:", discountedProducts);
+
+//-----------------------------------------------------------------------------
+
+const calculateTicketPrice = (customerName, age, seatType) => {
+    const basePrice = 100000;
+    let discount = 0;
+
+    // 1. Tính toán giảm giá dựa trên độ tuổi (Sử dụng Ternary Operator)
+    discount = (age < 12) 
+        ? 0.5   // Giảm 50%
+        : (age > 60) 
+            ? 0.3 // Giảm 30%
+            : 0;  // Không giảm
+
+    // 2. Tính giá sau giảm và cộng phụ phí ghế
+    let priceAfterDiscount = basePrice * (1 - discount);
+    let finalPrice = (seatType === "VIP") 
+        ? priceAfterDiscount + 50000 
+        : priceAfterDiscount;
+
+    // 3. Trả về thông báo sử dụng Template Strings và định dạng tiền tệ
+    return `-----------------------------------
+Khách hàng: ${customerName.toUpperCase()}
+Độ tuổi: ${age}
+Loại ghế: ${seatType}
+Tổng tiền thanh toán: ${finalPrice.toLocaleString()} VNĐ
+-----------------------------------`;
 };
 
-// --- CHẠY THỬ ---
-addProduct({ id: 4, name: "Logitech Mouse", price: 80, category: "Accessories" });
-
-console.log("Sản phẩm Tech:", getProductsByCategory("Tech"));
-
-const discountedProducts = applyDiscount(10); // Giảm giá 10%
-console.log("Danh sách sau khi giảm giá:", discountedProducts);
+// 4. Chạy thử nghiệm các trường hợp
+console.log(calculateTicketPrice("Q.Phúc", 22, "VIP"));      // Thanh niên, ghế VIP
+console.log(calculateTicketPrice("Em bé A", 10, "Standard")); // Trẻ em, ghế thường
+console.log(calculateTicketPrice("Cụ B", 70, "VIP"));        // Người già, ghế VIP
