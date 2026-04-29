@@ -803,6 +803,7 @@ import{
     isObject,
     isArray,
     isFunction,
+    isTruthy,
 
 } from "./function.js";
 
@@ -1044,33 +1045,37 @@ import{
 
 //-----------------------------------------------------------------------------
 
-const calculateTicketPrice = (customerName, age, seatType) => {
-    const basePrice = 100000;
-    let discount = 0;
+// const calculateTicketPrice = (customerName, age, seatType) => {
+//     const basePrice = 100000;
+//     let discount = 0;
 
-    // 1. Tính toán giảm giá dựa trên độ tuổi (Sử dụng Ternary Operator)
-    discount = (age < 12) 
-        ? 0.5   // Giảm 50%
-        : (age > 60) 
-            ? 0.3 // Giảm 30%
-            : 0;  // Không giảm
+//     // 1. Tính toán giảm giá dựa trên độ tuổi (Sử dụng Ternary Operator)
+//     discount = (age < 12) 
+//         ? 0.5   // Giảm 50%
+//         : (age > 60) 
+//             ? 0.3 // Giảm 30%
+//             : 0;  // Không giảm
 
-    // 2. Tính giá sau giảm và cộng phụ phí ghế
-    let priceAfterDiscount = basePrice * (1 - discount);
-    let finalPrice = (seatType === "VIP") 
-        ? priceAfterDiscount + 50000 
-        : priceAfterDiscount;
+//     // 2. Tính giá sau giảm và cộng phụ phí ghế
+//     let priceAfterDiscount = basePrice * (1 - discount);
+//     let finalPrice = (seatType === "VIP") 
+//         ? priceAfterDiscount + 50000 
+//         : priceAfterDiscount;
 
-    // 3. Trả về thông báo sử dụng Template Strings và định dạng tiền tệ
-    return `-----------------------------------
-Khách hàng: ${customerName.toUpperCase()}
-Độ tuổi: ${age}
-Loại ghế: ${seatType}
-Tổng tiền thanh toán: ${finalPrice.toLocaleString()} VNĐ
------------------------------------`;
-};
+//     // 3. Trả về thông báo sử dụng Template Strings và định dạng tiền tệ
+//     return `-----------------------------------
+// Khách hàng: ${customerName.toUpperCase()}
+// Độ tuổi: ${age}
+// Loại ghế: ${seatType}
+// Tổng tiền thanh toán: ${finalPrice.toLocaleString()} VNĐ
+// -----------------------------------`;
+// };
 
-// 4. Chạy thử nghiệm các trường hợp
-console.log(calculateTicketPrice("Q.Phúc", 22, "VIP"));      // Thanh niên, ghế VIP
-console.log(calculateTicketPrice("Em bé A", 10, "Standard")); // Trẻ em, ghế thường
-console.log(calculateTicketPrice("Cụ B", 70, "VIP"));        // Người già, ghế VIP
+// // 4. Chạy thử nghiệm các trường hợp
+// console.log(calculateTicketPrice("Q.Phúc", 22, "VIP"));      // Thanh niên, ghế VIP
+// console.log(calculateTicketPrice("Em bé A", 10, "Standard")); // Trẻ em, ghế thường
+// console.log(calculateTicketPrice("Cụ B", 70, "VIP"));        // Người già, ghế VIP
+
+//-----------------------------------------------------------------------------
+
+console.log(isTruthy(" "));
