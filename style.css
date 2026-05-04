@@ -1,9 +1,18 @@
+html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%; /* Đảm bảo html/body chiếm 100% chiều cao */
+            width: 100%;
+            overflow: hidden; /* Tránh thanh cuộn khi mưa rơi */
+        }
+
 body {
-    background-color: #1e1e1e;
-    display: flex;
-    justify-content: center;
-    padding: 50px;
-}
+            background-color: #1e1e1e;
+            display: flex;
+            justify-content: center; /* Căn giữa ngang */
+            align-items: center;     /* CĂN GIỮA DỌC - Đã thêm lỗi này */
+            position: relative;     /* Cần cho absolute canvas */
+        }
 
 .terminal {
     width: 100%;
@@ -28,6 +37,57 @@ body {
     margin-right: 8px;
 }
 
+.red { background-color: #ff5f56; }
+.yellow { background-color: #ffbd2e; }
+.green { background-color: #27c93f; }
+
+.title {
+    color: #ccc;
+    font-size: 14px;
+    margin-left: 10px;
+    font-family: sans-serif;
+}
+
+#console-display {
+    padding: 20px;
+    color: white;
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 16px;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    min-height: 300px;
+}
+/* 2. CANVAS RAIN - Đã sửa lỗi phủ kín màn hình */
+#snow-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* PHỦ KÍN 100% CỦA BODY */
+    z-index: 1;   /* Nằm dưới terminal */
+    pointer-events: none; /* Không chặn click vào terminal */
+}
+
+/* 3. TERMINAL STYLE - Giữ nguyên style gốc của bạn */
+.terminal {
+    width: 90%;
+    max-width: 800px;
+    background-color: #000;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    position: relative; /* Đảm bảo z-index hoạt động */
+    z-index: 10;        /* Nổi lên trên lớp mưa */
+}
+
+.terminal-header {
+    background-color: #333;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.dot { height: 12px; width: 12px; border-radius: 50%; margin-right: 8px; }
 .red { background-color: #ff5f56; }
 .yellow { background-color: #ffbd2e; }
 .green { background-color: #27c93f; }

@@ -14,6 +14,70 @@ console.log = function (...args) {
     display.textContent += "> " + output + "\n";
 };
 
+const canvas = document.getElementById('snow-canvas');
+const ctx = canvas.getContext('2d');
+
+let width, height, raindrops; // Đổi tên cho hợp lý
+
+function init() {
+    width = window.innerWidth;
+    height = window.innerHeight;
+    canvas.width = width;
+    canvas.height = height;
+
+    // Tạo 200 hạt mưa (mưa thường cần dày hơn tuyết)
+    raindrops = [];
+    for (let i = 0; i < 200; i++) {
+        raindrops.push({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            l: Math.random() * 20 + 10,      // Chiều dài hạt mưa
+            speed: Math.random() * 10 + 10,  // Tốc độ rơi (nhanh hơn tuyết rất nhiều)
+            opacity: Math.random() * 0.3 + 0.2 // Độ mờ để trông tự nhiên hơn
+        });
+    }
+}
+
+function draw() {
+    ctx.clearRect(0, 0, width, height);
+    
+    // Thiết lập màu và kiểu đường kẻ cho mưa
+    ctx.strokeStyle = "rgba(174, 194, 224, 0.5)"; // Màu xanh nhạt hơi trong suốt
+    ctx.lineWidth = 1;
+    ctx.lineCap = 'round';
+
+    for (let i = 0; i < raindrops.length; i++) {
+        let r = raindrops[i];
+        ctx.beginPath();
+        ctx.moveTo(r.x, r.y);
+        ctx.lineTo(r.x, r.y + r.l); // Vẽ một nét gạch thẳng đứng
+        ctx.stroke();
+    }
+    update();
+}
+
+function update() {
+    for (let i = 0; i < raindrops.length; i++) {
+        let r = raindrops[i];
+        r.y += r.speed; // Rơi xuống theo trục Y
+
+        // Nếu mưa rơi quá đáy màn hình, reset lên trên đỉnh
+        if (r.y > height) {
+            r.y = -20;
+            r.x = Math.random() * width;
+        }
+    }
+}
+
+window.addEventListener('resize', init);
+init();
+
+function animate() {
+    draw();
+    requestAnimationFrame(animate);
+}
+animate();
+
 // --- BẮT ĐẦU VIẾT CODE BÀI TẬP CỦA ÔNG DƯỚI ĐÂY ---
 // console.log("Hello World!");
 // ----------------------------------------------------------------------------------------------
