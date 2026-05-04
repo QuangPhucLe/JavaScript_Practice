@@ -35,3 +35,6 @@ export function isArray(value9){
 export function isFunction(value10){
     return typeof value10 === "function"
 }
+export function isTruthy(value11){
+    return !!value11;
+}
