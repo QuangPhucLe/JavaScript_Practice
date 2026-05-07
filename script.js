@@ -1142,4 +1142,38 @@ import{
 
 //-----------------------------------------------------------------------------
 
-console.log(isTruthy(" "));
+// console.log(isTruthy(" "));
+
+// function printNumbers(start, end) {
+//     for (let i = start; i <= end; i++) {
+//         console.log(i)
+//     }
+// }
+
+// printNumbers(1, 10)
+
+//-----------------------------------------------------------------------------
+
+// function reverseString(str) {
+//     let reverStr = "";
+//     for (let i = str.length - 1; i >=0; i--){
+//         reverStr += str[i];
+//     }
+//     return reverStr
+// }
+
+// console.log(reverseString("Xin Chao"))
+
+//-----------------------------------------------------------------------------
+
+function findMax (number) {
+    let max = 0;
+    for (let i = 0; i < number.length; i++) {
+        if (number[i] > max) {
+            max = number[i];
+        }
+    }
+    return max
+}
+
+console.log(findMax([1, 3, 5, 7, 9]))
