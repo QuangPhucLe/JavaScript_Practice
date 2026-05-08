@@ -1154,40 +1154,73 @@ import{
 
 //-----------------------------------------------------------------------------
 
-function reverseString(str) {
-    let reverStr = "";
-    for (let i = str.length - 1; i >=0; i--){
-        reverStr += str[i];
-    }
-    return reverStr
-}
+// function reverseString(str) {
+//     let reverStr = "";
+//     for (let i = str.length - 1; i >=0; i--){
+//         reverStr += str[i];
+//     }
+//     return reverStr
+// }
 
-console.log(reverseString("Xin Chao"))
-
-//-----------------------------------------------------------------------------
-
-function findMax (number) {
-    let max = 0;
-    for (let i = 0; i < number.length; i++) {
-        if (number[i] > max) {
-            max = number[i];
-        }
-    }
-    return max
-}
-
-console.log(findMax([1, 3, 5, 7, 9]))
+// console.log(reverseString("Xin Chao"))
 
 //-----------------------------------------------------------------------------
 
-function findMax (number) {
-    let max = 0;
-    for (let i = 0; i < number.length; i++) {
-        if (number[i] > max) {
-            max = number[i];
-        }
-    }
-    return max
+// function findMax (number) {
+//     let max = 0;
+//     for (let i = 0; i < number.length; i++) {
+//         if (number[i] > max) {
+//             max = number[i];
+//         }
+//     }
+//     return max
+// }
+
+// console.log(findMax([1, 3, 5, 7, 9]))
+
+//-----------------------------------------------------------------------------
+
+
+// function checkTypeOfNumber(start, end) {
+//     for (let i = start; i <= end; i++) {
+//         if (i === 15)   {
+//             console.log("Da cham toi moc 15")
+//             break;
+//         }
+//         if (i % 2 === 0)    {
+//             console.log("Day la so chan" + " " + i);
+//         }
+//         else {
+//             console.log("Day la so le" + " " + i);
+//         }
+//     } 
+//     return
+// }
+
+// console.log(checkTypeOfNumber(1, 18))
+
+//-----------------------------------------------------------------------------
+
+const prices = [10, 25, 40, 5, 120, 30, 8];
+let total = 0;
+
+for (let i = 0; i < prices.length; i++) {
+  let currentPrice = prices[i];
+
+  // 1. Kiểm tra nếu là quà tặng (giá = 5) thì bỏ qua
+  if (currentPrice === 5) {
+    // Viết lệnh để nhảy sang lần lặp kế tiếp tại đây
+    continue;
+  }
+
+  // 2. Kiểm tra hàng cao cấp (> 100)
+  if (currentPrice > 100) {
+    console.log(`Phát hiện hàng cao cấp: ${currentPrice} USD`);
+  }
+
+  // 3. Cộng dồn vào tổng tiền
+  // total = total + currentPrice;
+    total += currentPrice
 }
 
-console.log(findMax([1, 3, 5, 7, 9]))
+console.log(`Tổng hóa đơn (đã trừ quà tặng): ${total} USD`);
