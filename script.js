@@ -1201,26 +1201,215 @@ import{
 
 //-----------------------------------------------------------------------------
 
-const prices = [10, 25, 40, 5, 120, 30, 8];
-let total = 0;
+// const prices = [10, 25, 40, 5, 120, 30, 8];
+// let total = 0;
 
-for (let i = 0; i < prices.length; i++) {
-  let currentPrice = prices[i];
+// for (let i = 0; i < prices.length; i++) {
+//   let currentPrice = prices[i];
 
-  // 1. Kiểm tra nếu là quà tặng (giá = 5) thì bỏ qua
-  if (currentPrice === 5) {
-    // Viết lệnh để nhảy sang lần lặp kế tiếp tại đây
-    continue;
-  }
+//   // 1. Kiểm tra nếu là quà tặng (giá = 5) thì bỏ qua
+//   if (currentPrice === 5) {
+//     // Viết lệnh để nhảy sang lần lặp kế tiếp tại đây
+//     continue;
+//   }
 
-  // 2. Kiểm tra hàng cao cấp (> 100)
-  if (currentPrice > 100) {
-    console.log(`Phát hiện hàng cao cấp: ${currentPrice} USD`);
-  }
+//   // 2. Kiểm tra hàng cao cấp (> 100)
+//   if (currentPrice > 100) {
+//     console.log(`Phát hiện hàng cao cấp: ${currentPrice} USD`);
+//   }
 
-  // 3. Cộng dồn vào tổng tiền
-  // total = total + currentPrice;
-    total += currentPrice
+//   // 3. Cộng dồn vào tổng tiền
+//   // total = total + currentPrice;
+//     total += currentPrice
+// }
+
+// console.log(`Tổng hóa đơn (đã trừ quà tặng): ${total} USD`);
+
+//-----------------------------------------------------------------------------
+
+// function countPositiveNumbers (numbers) {
+//     let count = 0;
+//     for (let i = 0; i < numbers.length; i++) {
+//         if (numbers[i] > 0) {
+//             count++ ;
+//         }
+//     }
+//     return count;
+// }
+
+// console.log(countPositiveNumbers([-1, 2, 3, -4, 5]));
+
+//-----------------------------------------------------------------------------
+
+// function sumArray(numbers) {
+//     let sum = 0;
+//     for (let i =  0; i < numbers.length; i++)   {
+//         sum += numbers[i];
+//     }
+//     return sum;
+// }
+
+// console.log(sumArray([1, 2, 3, 4, 5]))
+
+//-----------------------------------------------------------------------------
+
+// function caculateAverage(numbers) {
+//     let sum = 0;
+//     for (let i =  0; i < numbers.length; i++)   {
+//         sum += numbers[i];
+//     }
+//     return numbers.length ? sum / numbers.length : 0;
+// }
+
+// console.log(caculateAverage([1, 2, 3, 4, 5]))
+// console.log(caculateAverage([]))
+
+//-----------------------------------------------------------------------------
+
+// function repeatChar(character, n)   {
+//     let result = "";
+//     for (let i = 0; i < n; i++ )    {
+//         result += character;
+//     }
+//     return result;
+// }
+
+// console.log(repeatChar("*", 5))
+// console.log(repeatChar("f", 3))
+// console.log(repeatChar("a", 0))
+
+//-----------------------------------------------------------------------------
+
+// function arrayToHTMLList(array)  {
+//     let result = "<ul>";
+//     for (let i = 0; i < array.length; i++)  {
+//         result += `<li>${array[i]}</li>`;
+//     }
+//     return `${result}</ul>`;
+// }
+
+// console.log(arrayToHTMLList(['HTML', 'CSS', 'JavaScript']))
+
+//-----------------------------------------------------------------------------
+
+// function linearSearch(array, target)    {
+//     for (let i = 0; i < array.length; i++)  {
+//         if (array[i] === target) return i
+//     }
+//     return -1
+// }
+
+// console.log(linearSearch([5, 3, 7, 6, 2, 9], 6))
+// console.log(linearSearch([5, 3, 7, 6, 2, 9], 10))
+
+//-----------------------------------------------------------------------------
+
+// let i = 0;
+
+// while (i <= 20)    {
+//     console.log(i)
+//     i++;
+// }
+
+//-----------------------------------------------------------------------------
+// let input = -1;
+
+// while (input < 0)   {
+//     input = +prompt("Nhap vao mot so khong am: ");
+// }
+
+// console.log(`Ban da nhap1 ${input}`);
+
+//-----------------------------------------------------------------------------
+
+// let a = 60;
+// let b = 48;
+
+// // Đảm bảo rằng a luôn lớn hơn b
+// if (b > a) {
+//     // Nếu b lớn hơn a, đổi chỗ a và b
+//     let temp = a; // Sử dụng biến tạm để giữ giá trị của a
+//     a = b;        // Gán giá trị của b cho a
+//     b = temp;     // Gán giá trị tạm (a ban đầu) cho b
+// }
+
+// // Thực hiện vòng lặp để tìm UCLN sử dụng thuật toán Euclid
+// while (b != 0) {
+//     let temp = b;   // Lưu giá trị hiện tại của b vào biến tạm
+//     b = a % b;      // Cập nhật b bằng phần dư của a chia cho b
+//     a = temp;       // Cập nhật a bằng giá trị cũ của b
+//     // Lặp lại quy trình này cho đến khi b bằng 0
+// }
+
+// // Khi b = 0, a chính là UCLN của hai số ban đầu
+// console.log(`Ước chung lớn nhất là ${a}`); // Ước chung lớn nhất là 12
+//-----------------------------------------------------------------------------
+
+// function timUCLN(a, b)  {
+//     if (b > a)  {
+//         const temp = a;
+//         a = b; 
+//         b= temp;
+//     }
+//     while(b != 0)   {
+//         const temp = b;
+//         b = a % b;
+//         a = temp;
+//     }
+//     return a;
+// }
+
+// console.log(timUCLN(48, 60));
+
+//-----------------------------------------------------------------------------
+
+// function timUCLN(a, b)  {
+//     while (a != b)  {
+//         if (a > b)  {
+//             a -= b;
+//         }
+//         else    {
+//             b -= a;
+//         }
+//     }
+//     return a;
+// }
+
+// console.log(timUCLN(48, 60));
+
+//-----------------------------------------------------------------------------
+
+// let password = null;
+// do {
+//     password = prompt("Enter your password: ");
+// } while (password !== "secret");
+
+// console.log("Password correct");
+
+//-----------------------------------------------------------------------------
+
+// let numbers = [
+//     [1, 2, 3],
+//     [4, 5, 6],
+//     [7,8, 9]
+// ];
+
+// let total = 0;
+// for (let i = 0; i < numbers.length; i++)    {
+//     const mangCon = (numbers[i]);
+
+//     for (let j = 0; j < mangCon.length; j++)    {
+//         total += mangCon[j];
+//     }
+// }
+
+// console.log(total)
+
+//-----------------------------------------------------------------------------
+
+for (let i = 1; i <= 9; i++)    {
+    for (let j = 1; j <= 9; j++)    {
+        console.log(`${i} * ${j} = ${i * j}`);
+    }
+    i < 9 && console.log("----------")
 }
-
-console.log(`Tổng hóa đơn (đã trừ quà tặng): ${total} USD`);
