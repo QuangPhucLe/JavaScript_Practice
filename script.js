@@ -32,7 +32,7 @@ function init() {
             x: Math.random() * width,
             y: Math.random() * height,
             l: Math.random() * 20 + 10,      // Chiều dài hạt mưa
-            speed: Math.random() * 10 + 10,  // Tốc độ rơi (nhanh hơn tuyết rất nhiều)
+            speed: Math.random() * 5 + 5,  // Tốc độ rơi (nhanh hơn tuyết rất nhiều)
             opacity: Math.random() * 0.3 + 0.2 // Độ mờ để trông tự nhiên hơn
         });
     }
@@ -1415,4 +1415,11 @@ import{
 // }
 
 // -----------------------------------------------------------------------------
-
+const objects = {
+    name: "QuangPhuc",
+    age: 23,
+    university: "VanLang", 
+};
+for (const object in objects)   {
+    console.log(objects[object])
+}
