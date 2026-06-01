@@ -1415,11 +1415,334 @@ import{
 // }
 
 // -----------------------------------------------------------------------------
-const objects = {
-    name: "QuangPhuc",
-    age: 23,
-    university: "VanLang", 
+// const objects = {
+//     name: "QuangPhuc",
+//     age: 23,
+//     university: "VanLang", 
+// };
+// for (const object in objects)   {
+//     console.log(objects[object])
+// }
+
+// -----------------------------------------------------------------------------
+// const person = {
+//     name: "John",
+// };
+
+// person.name = "Bob";
+// person.age = 12;
+
+// console.log(person)
+
+// -----------------------------------------------------------------------------
+
+// const dog = {
+//     name: "Scooby Doo",
+//     age: 5,
+
+// speak: function() {
+//     console.log("Go Go ...")
+// }
+// };
+
+// dog.speak();
+
+// const musicPlayer = {
+//     //Thuoc tinh:
+//     name: "Music player new",
+//     theme: "dark",
+
+//     //Phuong thuc:
+//     play: function()    {
+//         // Logic phat nhac
+//     },
+//     pause: function()   {
+//         //Logic tam dung
+//     },
+//     seek: function()    {
+//         //Logic tua nhac
+//     },
+// };
+
+//-----------------------------------------------------------------------------
+// const studentManager = {
+//     name: "Quang ly sinh vien",
+//     theme: "Light",
+//     data: [], // Luu data sau
+
+//     // Phuong thuc:
+//     add: function() {
+//         // Logic them sinh vien,
+//     },
+//     edit: function() {
+//     // Logic them sinh vien,
+//     },
+//     update: function() {
+//         // Logic them sinh vien,
+//     },
+    
+// }
+
+// -----------------------------------------------------------------------------
+
+// const person = {
+//     firstName: "John",
+//     lastName: "Smith",
+//     getFullName: function() {
+//         console.log(this);
+//     },
+//     info: {
+//         name: "Info",
+//         getName: function() {
+//             console.log(this)
+//         }
+//     }
+// };
+
+// person.getFullName();
+// person.info.getName();
+
+// -----------------------------------------------------------------------------
+
+// const person = {
+//     firstName: "John",
+//     lastName: "Smith",
+//     getFullName: function() {
+//         console.log(`${this.firstName} ${this.lastName}`)
+//     },
+// }
+
+// person.getFullName();
+
+// -----------------------------------------------------------------------------
+
+// const person = {
+//     name: "Bob",
+//     age: 22,
+
+// };
+
+// const { name, age} = person;
+// console.log(name);
+// console.log(age);
+
+// -----------------------------------------------------------------------------
+
+// const course = {
+//     title: "JavaScript Pro",
+//     info: {
+//         url: "https://fullstack.edu.vn",
+//         description: "javaScript Basic, Advanced",
+//         keywords: "js basic, js advanced"
+//     },
+
+// };
+
+// const { 
+//     title: name, 
+//     info: {
+//         keywords: topics
+//     }
+// } = course;
+// console.log(name);
+// console.log(topics);
+
+// -----------------------------------------------------------------------------
+
+// const name = "John Doe";
+// const age = 30;
+
+// const person = {
+//     name: name,
+//     age: age,
+
+// }
+
+// console.log(person);
+
+// =======================Property Shorthand======================
+// const name = "John Doe";
+// const age = 30;
+
+// const person = {name, age}
+
+// console.log(person);
+
+// -----------------------------------------------------------------------------
+
+// const dog = {
+//     name: "Scooby Doo",
+//     speak: function()   {
+//         console.log("Goo, gooo, ......")
+//     }
+// }
+
+
+// dog.speak();
+
+// ========Method Shorthand=================
+
+// const dog = {
+//     name: "Scooby Doo",
+//     speak() {console.log("Goo, gooo, ......");
+//     }
+// };
+
+// dog.speak();
+
+// ===========Exxamples==========
+
+// const dog = {
+//     name: "Scooby Doo",
+//     speak(message) {console.log(message);
+//     }
+// };
+
+// dog.speak("Gooooo,gooooooo");
+
+// -----------------------------------------------------------------------------
+// =============== Computed property names ================
+// const property = "lastName";
+// const person = {
+//     firtName: "John",
+
+// };
+
+// person[property] = "Smith";
+
+// console.log(person)
+
+//===========Examples==============
+
+// const property = "lastName";
+// const person = {
+//     firtName: "John",
+//     [property + 1]: "Smith",
+// };
+// console.log(person)
+
+// -----------------------------------------------------------------------------
+
+// const obj = { a: 1, b: 2, c:3 };
+// const properties = Object.keys(obj);
+
+// for (let property of properties)    {
+//     console.log(property)
+// }
+
+// console.log(properties.length) 
+
+// if (properties.length)  {
+//     console.log("Object khong trong");
+// }
+// else {
+//     console.log("Object trong")
+// };
+
+// -----------------------------------------------------------------------------
+
+// const obj = { a: 1, b: 2, c:3 };
+// console.log(Object.values(obj));
+// // ==========examples========
+
+// for (let key in obj)    {
+//     console.log(obj[key])
+// }
+// // ==========examples========
+// for (let value of Object.values(obj))   {
+//     console.log(value)
+// }
+
+// -----------------------------------------------------------------------------
+
+// const obj = { a: 1, b: 2, c:3 };
+// const entries = Object.entries(obj);
+
+// for (let entry of entries)  {
+//     const key = entry[0];
+//     const value = entry[1];
+
+//     console.log(key, value)
+// }
+
+// -----------------------------------------------------------------------------
+// ============Hop nhat nhieu object lam 1=============
+// const target = {a: 1};
+// const source = {b: 2};
+
+// // Object.assign(target, source);
+// // Object ben phai ghi de len Object ben trai
+// Object.assign(target, source, {
+//     d: 4
+// }, {
+//     e:5
+// });
+// console.log(target)
+
+// -----------------------------------------------------------------------------
+// =======Dong bang Object========
+// const obj = Object.freeze({a : 1});
+
+// obj.a = 2;
+// obj.b = 3;
+// delete obj.a;
+
+// console.log(obj);
+
+// -----------------------------------------------------------------------------\
+// ======== Niem Phong OBJECT Khong the Them, Xoa Nhung co the Sua
+
+// const obj = Object.seal({ a: 1});
+
+// obj.a =2;
+// obj.b =3;
+// delete obj.a;
+
+// console.log(obj);
+
+
+// -----------------------------------------------------------------------------
+
+// function calculate(operation, a, b) {
+//     const calculator = {
+//         add: () => a + b,
+//         subtract: () => a - b,
+//         multiply: () => a * b,
+//         divide: () => b === 0 ? 'Cannot divide by zero' : a / b
+//     };
+//     const action = calculator[operation];
+//     return action ? action() : 'Operation not recognized. Please use add, subtract, multiply, or divide.';
+// };
+
+// Testing the function
+console.log(calculate('add', 5, 3));
+console.log(calculate('subtract', 5, 5));
+console.log(calculate('multiply', 5, 3));
+console.log(calculate('divide', 9, 3));
+console.log(calculate('divide', 5, 0));
+console.log(calculate('modulus', 5, 3));
+
+
+// Rut gon hon nua **** Mang tinh chat tham khao khong nen ap dung vi kho hieu***
+// function calculate(operation, a, b) {
+//     const calculator = {
+//         add: () => a + b,
+//         subtract: () => a - b,
+//         multiply: () => a * b,
+//         divide: () => b === 0 ? 'Cannot divide by zero' : a / b
+//     };
+//         return (calculator[operation] || (() => 'Operation not recognized. Please use add, subtract, multiply, or divide.'))();
+
+// };
+
+// Rut gon hon nua **** Mang tinh chat tham khao khong nen ap dung vi kho hieu***
+function calculate(operation, a, b) {
+    const action = {
+        add: () => a + b,
+        subtract: () => a - b,
+        multiply: () => a * b,
+        divide: () => b === 0 ? 'Cannot divide by zero' : a / b
+    }[operation];
+        return action ? action() : 'Operation not recognized. Please use add, subtract, multiply, or divide.';
+
 };
-for (const object in objects)   {
-    console.log(objects[object])
-}
