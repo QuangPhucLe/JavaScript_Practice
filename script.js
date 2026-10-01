@@ -1715,15 +1715,15 @@ import{
 // };
 
 // Testing the function
-console.log(calculate('add', 5, 3));
-console.log(calculate('subtract', 5, 5));
-console.log(calculate('multiply', 5, 3));
-console.log(calculate('divide', 9, 3));
-console.log(calculate('divide', 5, 0));
-console.log(calculate('modulus', 5, 3));
+// console.log(calculate('add', 5, 3));
+// console.log(calculate('subtract', 5, 5));
+// console.log(calculate('multiply', 5, 3));
+// console.log(calculate('divide', 9, 3));
+// console.log(calculate('divide', 5, 0));
+// console.log(calculate('modulus', 5, 3));
 
 
-// Rut gon hon nua **** Mang tinh chat tham khao khong nen ap dung vi kho hieu***
+// ======================Rut gon hon nua **** Mang tinh chat tham khao khong nen ap dung vi kho hieu***========================
 // function calculate(operation, a, b) {
 //     const calculator = {
 //         add: () => a + b,
@@ -1735,14 +1735,138 @@ console.log(calculate('modulus', 5, 3));
 
 // };
 
-// Rut gon hon nua **** Mang tinh chat tham khao khong nen ap dung vi kho hieu***
-function calculate(operation, a, b) {
-    const action = {
-        add: () => a + b,
-        subtract: () => a - b,
-        multiply: () => a * b,
-        divide: () => b === 0 ? 'Cannot divide by zero' : a / b
-    }[operation];
-        return action ? action() : 'Operation not recognized. Please use add, subtract, multiply, or divide.';
+// ==================Rut gon hon nua **** Mang tinh chat tham khao khong nen ap dung vi kho hieu***=====================
+// function calculate(operation, a, b) {
+//     const action = {
+//         add: () => a + b,
+//         subtract: () => a - b,
+//         multiply: () => a * b,
+//         divide: () => b === 0 ? 'Cannot divide by zero' : a / b
+//     }[operation];
+//         return action ? action() : 'Operation not recognized. Please use add, subtract, multiply, or divide.';
 
-};
+// };
+// ----------------------------------------------------------------------------------------
+// console.log("Trận chiến của Tom và Jerry.")
+
+// const tom = {
+//     name: "Tom",
+//     hp: 1000,
+//     attack_power: 50,
+//     defense: 10,
+//     attack(target){
+//         const damage = this.attack_power - target.defense
+//         target.hp -= damage > 0 ? damage : 0;
+//         console.log(`${this.name} đánh ${target.name}, gây ${damage} sát thương, ${target.name} còn ${target.hp} máu.`);
+//     },
+//     isAlive() {
+//         return this.hp > 0;
+//     },
+// }; 
+
+// const jerry = {
+//     name: "Jerry",
+//     hp: 100,
+//     attack_power: 5,
+//     defense: 20,
+//     attack(target){
+//          const damage = this.attack_power - target.defense
+//         target.hp -= damage > 0 ? damage :0;
+//         console.log(`${this.name} đánh ${target.name}, gây ${damage} sát thương, ${target.name} còn ${target.hp} máu.`);
+//     },
+//     isAlive() {
+//         return this.hp > 0;
+//     },
+// };
+
+// let round =1;
+
+// while (tom.isAlive() && jerry.isAlive()) {
+//     console.log(`Round dau thu ${round}:`);
+
+//     if (round % 2 === 0) {
+//         tom.attack(jerry);
+//     }
+//     else {
+//         jerry.attack(tom);
+//     }
+
+//     round ++;
+// }
+
+// tom.isAlive()
+// ? console.log('Tom Win.')
+// : console.log('Jerry Win')
+
+// -------------------------------------------------------------------------------------------------
+
+function Character(name, hp, atk, def, speed, counterRate)  {
+    this.name = name;
+    this.hp = hp;
+    this.atk = atk;
+    this.def = def;
+    this.speed = speed;
+    this.counterRate = counterRate;
+    //Phuong thuc tan cong
+    this.attack = (target) => {
+        //Tinh damage va dam bao khong am
+        const damage = Math.max(this.atk - target.def, 0)
+        // Tru hp cua muc tieu
+        target.hp -= damage;
+        console.log(`${this.name} đánh ${target.name}, gây ${damage} sát thương, ${target.name} còn ${target.hp} máu.`);
+        // Xu ly target phan cong
+        if (target.isAlive() && Math.random() < target.counterRate)   {
+            const counterDamage = Math.max(target.atk - this.def, 0);
+            // Tru hp cua Attacker
+            this.hp -= counterDamage;
+            console.log(`!!!!!!!!${target.name} phan cong ${this.name}, gây ${counterDamage} sát thương, ${this.name} còn ${this.hp} máu.!!!!! `);
+        }
+    };
+    this.isAlive = () => {
+        return this.hp > 0;
+    };
+}   
+
+function battleRound(attacker, defender)    {
+    //Attacker danh truoc:
+    attacker.attack(defender);
+
+    //Neu defender van song thi danh lai:
+    if (defender.isAlive() && attacker.isAlive()) {
+        defender.attack(attacker);
+    }
+}
+
+function battle(Char1, Char2)   {
+    let round = 1;
+
+    while (Char1.isAlive() && Char2.isAlive())  {
+        console.log(`Round ${round} `);
+        
+        if (Char1.speed > Char2.speed) {
+            battleRound(Char1,Char2);
+        }
+        else if (Char2.speed > Char1.speed) {
+            battleRound(Char2, Char1);
+        } 
+        else  {
+            if (Math.random() < 0.5)    {
+                battleRound(Char1, Char2);
+            }
+            else{
+                battleRound(Char2, Char1);
+            }
+        }
+        round ++;
+    }
+    //Kiem tra nguoi chien thang
+    const winner = Char1.isAlive() ? Char1: Char2;
+    console.log(`${winner.name} Wins!`);
+    return winner;
+}
+
+const tom = new Character('Tom', 1000, 50, 5, 30, 0.5)
+const jerry = new Character('Jerry', 500, 20, 20, 30, 0.2)
+
+// battle(tom, jerry)
+battle(tom,jerry)
