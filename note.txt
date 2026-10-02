@@ -14,3 +14,30 @@
 - concat() nối 2 hoặc nhiều mảng lại với nhau 
 - flat() làm phẳng mảng
 - forEach() duyệt qua và thực hiện một hàm trên mỗi phần tử của mảng 
+
+--------------------------------------------------------------------
+
+Từ khóa 'This': 
+
+*** Global Context (Ngữ cảnh toàn cục).
+- Tại ngữ cảnh toàn cục trên trình duyệt web, thì 'this' tham chiếu tới đối tượng 'Window'.
+
+*** Function Context (Ngữ cảnh hàm).
+- Trong một hàm thông thường, giá trị của 'this' phụ thuộc vào cách mà hàm được gọi.
+
+- Khi gọi hàm không thông qua một đối tượng (gọi hàm theo cách thông thường), thì lúc này 'this' 
+sẽ tham chiếu về đối tượng toàn cục, ở trên trình duyệt web nó là 'Window'.
+
+- Gọi hàm theo cách thông thường nhưng ở trong 'Stric mode' (chế độ nghiêm ngặt cảu JavaScript), 
+thì lúc này 'This' sẽ tham chiếu đến 'undefined'.
+
+- Khi gọi phương thức thông qua một đối tượng thì 'this' trong phương thức đó sẽ trỏ tới đối 
+tượng mà ta gọi phương thức (trỏ tới đối tượng mà nó thuộc về).
+
+*** Constructor Function (Hàm khởi tạo)
+- Khi một hàm khởi tạo (Contructor function) được gọi với từ khóa new, 'this' trỏ tới đối tượng
+mới được tạo ra. 
+
+*** Arrow Function (Hàm mũi tên)
+- Hàm mũi tên không có 'this' riêng của nó, thay vào đó, nó kế thừa 'this' từ phạm vi nơi mà nó được định nghĩa.
+

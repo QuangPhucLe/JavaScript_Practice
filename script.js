@@ -1800,73 +1800,139 @@ import{
 
 // -------------------------------------------------------------------------------------------------
 
-function Character(name, hp, atk, def, speed, counterRate)  {
-    this.name = name;
-    this.hp = hp;
-    this.atk = atk;
-    this.def = def;
-    this.speed = speed;
-    this.counterRate = counterRate;
-    //Phuong thuc tan cong
-    this.attack = (target) => {
-        //Tinh damage va dam bao khong am
-        const damage = Math.max(this.atk - target.def, 0)
-        // Tru hp cua muc tieu
-        target.hp -= damage;
-        console.log(`${this.name} đánh ${target.name}, gây ${damage} sát thương, ${target.name} còn ${target.hp} máu.`);
-        // Xu ly target phan cong
-        if (target.isAlive() && Math.random() < target.counterRate)   {
-            const counterDamage = Math.max(target.atk - this.def, 0);
-            // Tru hp cua Attacker
-            this.hp -= counterDamage;
-            console.log(`!!!!!!!!${target.name} phan cong ${this.name}, gây ${counterDamage} sát thương, ${this.name} còn ${this.hp} máu.!!!!! `);
-        }
-    };
-    this.isAlive = () => {
-        return this.hp > 0;
-    };
-}   
+// function Character(name, hp, atk, def, speed, counterRate)  {
+//     this.name = name;
+//     this.hp = hp;
+//     this.atk = atk;
+//     this.def = def;
+//     this.speed = speed;
+//     this.counterRate = counterRate;
+//     //Phuong thuc tan cong
+//     this.attack = (target) => {
+//         //Tinh damage va dam bao khong am
+//         const damage = Math.max(this.atk - target.def, 0)
+//         // Tru hp cua muc tieu
+//         target.hp -= damage;
+//         console.log(`${this.name} đánh ${target.name}, gây ${damage} sát thương, ${target.name} còn ${target.hp} máu.`);
+//         // Xu ly target phan cong
+//         if (target.isAlive() && Math.random() < target.counterRate)   {
+//             const counterDamage = Math.max(target.atk - this.def, 0);
+//             // Tru hp cua Attacker
+//             this.hp -= counterDamage;
+//             console.log(`!!!!!!!!${target.name} phan cong ${this.name}, gây ${counterDamage} sát thương, ${this.name} còn ${this.hp} máu.!!!!! `);
+//         }
+//     };
+//     this.isAlive = () => {
+//         return this.hp > 0;
+//     };
+// }   
 
-function battleRound(attacker, defender)    {
-    //Attacker danh truoc:
-    attacker.attack(defender);
+// function battleRound(attacker, defender)    {
+//     //Attacker danh truoc:
+//     attacker.attack(defender);
 
-    //Neu defender van song thi danh lai:
-    if (defender.isAlive() && attacker.isAlive()) {
-        defender.attack(attacker);
-    }
-}
+//     //Neu defender van song thi danh lai:
+//     if (defender.isAlive() && attacker.isAlive()) {
+//         defender.attack(attacker);
+//     }
+// }
 
-function battle(Char1, Char2)   {
-    let round = 1;
+// function battle(Char1, Char2)   {
+//     let round = 1;
 
-    while (Char1.isAlive() && Char2.isAlive())  {
-        console.log(`Round ${round} `);
+//     while (Char1.isAlive() && Char2.isAlive())  {
+//         console.log(`Round ${round} `);
         
-        if (Char1.speed > Char2.speed) {
-            battleRound(Char1,Char2);
-        }
-        else if (Char2.speed > Char1.speed) {
-            battleRound(Char2, Char1);
-        } 
-        else  {
-            if (Math.random() < 0.5)    {
-                battleRound(Char1, Char2);
-            }
-            else{
-                battleRound(Char2, Char1);
-            }
-        }
-        round ++;
-    }
-    //Kiem tra nguoi chien thang
-    const winner = Char1.isAlive() ? Char1: Char2;
-    console.log(`${winner.name} Wins!`);
-    return winner;
-}
+//         if (Char1.speed > Char2.speed) {
+//             battleRound(Char1,Char2);
+//         }
+//         else if (Char2.speed > Char1.speed) {
+//             battleRound(Char2, Char1);
+//         } 
+//         else  {
+//             if (Math.random() < 0.5)    {
+//                 battleRound(Char1, Char2);
+//             }
+//             else{
+//                 battleRound(Char2, Char1);
+//             }
+//         }
+//         round ++;
+//     }
+//     //Kiem tra nguoi chien thang
+//     const winner = Char1.isAlive() ? Char1: Char2;
+//     console.log(`${winner.name} Wins!`);
+//     return winner;
+// }
 
-const tom = new Character('Tom', 1000, 50, 5, 30, 0.5)
-const jerry = new Character('Jerry', 500, 20, 20, 30, 0.2)
+// const tom = new Character('Tom', 1000, 50, 5, 30, 0.5)
+// const jerry = new Character('Jerry', 500, 20, 20, 30, 0.2)
 
-// battle(tom, jerry)
-battle(tom,jerry)
+// // battle(tom, jerry)
+// battle(tom,jerry)
+
+//-------------------------------------------------------------------------------
+
+// ------------------------------Cách 1: ----------------------------------------
+
+// function Character(name, hp, atk)    {
+//     this.name = name;
+//     this.hp = hp;
+//     this.atk = atk;
+// }
+
+// Character.prototype.attack = function (target)    {
+//     target.hp -= this.atk;
+// }
+
+// const tom = new Character('Tom', 100, 20);
+// const jerry = new Character('Jerry, 80, 10');
+
+// console.log(tom)
+// console.log(jerry)
+
+// ---------------------Cách 2: Object.create() -----------------------------------
+
+// const prototype = {
+//     // attack(target){    (Cách viết rút gọn áp dụng ở phiên bản ES6)
+//     attack: function(target){
+//         target -= this.atk;
+//     }
+// }
+
+// const tom = Object.create(prototype)
+
+// tom.name = 'Tom';
+// tom.hp = 100;
+// tom.atk = 20;
+
+
+// const jerry = Object.create(prototype)
+
+// jerry.name = 'Jerry';
+// jerry.hp = 80;
+// jerry.atk = 10;
+
+// console.log(tom,jerry)
+
+//----------------------------------------------------------------------------------
+
+// Object.prototype.valueOf()
+// Object.prototype.toString()
+
+// const obj = {
+//     valueOf()   {
+//         console.log("valueOf");
+//         return {}
+//     },
+//     toString()  {
+//         console.log('toString');
+//         return {}
+//     }
+// };
+
+// console.log(obj + "ABC")
+
+// -----------------------------------------------------------------------------------
+
+console.log(this)
