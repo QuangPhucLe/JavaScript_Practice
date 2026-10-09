@@ -41,3 +41,15 @@ mới được tạo ra.
 *** Arrow Function (Hàm mũi tên)
 - Hàm mũi tên không có 'this' riêng của nó, thay vào đó, nó kế thừa 'this' từ phạm vi nơi mà nó được định nghĩa.
 
+--------------------------------------------------------------------
+.
+bind, call, apply.
+
+
+- bind(): Không gọi hàm, copy ra hàm mới, bind sẵn các giá trị cho các tham số của hàm.
+- call(): Gọi hàm ngay, truyền đối số cách nhau bằng dấu (,).
+- apply(): Gọi hàm ngay, truyền đối số dưới dạng một mảng.
+
+Cả 3 thằng:
+- Đều chỉ định "this" sẽ tham chiếu về đối tượng cụ thể.
+- Đều không sử dụng được với Arrow function.

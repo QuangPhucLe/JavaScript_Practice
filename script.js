@@ -1935,4 +1935,362 @@ import{
 
 // -----------------------------------------------------------------------------------
 
-console.log(this)
+
+// // *******array.forEach(callback, thisValue);
+// const obj = {
+//     numbers: [1,2,3],
+//     add(number) {
+//         this.numbers.push(number);
+//     },
+//     import(numbers) {
+//         numbers.forEach(this.add, this);
+//     }
+// };
+
+// obj.add(4);
+// obj.add(5);
+// obj.import([6,7,8]);
+
+// console.log(obj.numbers);
+
+// -----------------------------------------------------------------------------------
+
+// const numbers = [4, 10, 18, 5, 24,78];
+
+// const result = numbers.find(function (number)   {
+//     return number > 10;
+// });
+
+// console.log(result)
+
+// Rut gon code
+// const numbers = [4, 10, 18, 5, 24,78];
+
+// const result = numbers.find( (num) => num > 10);
+
+// console.log(result)
+
+// -----------------------------------------------------------------------------------
+//********************* */ find(): Tim phan tu trong mang va tra ve phan tu dau tien thoa dieu kien, ket thuc tim kiem
+// const users = [
+//     {name: "Alice", age: 20},
+//     {name: "Bod", age: 22},
+//     {name: "John", age: 23},
+//     {name: "Caroline", age: 19},
+// ];
+
+// const result = users.find(user => user.age)
+// console.log(result)
+
+//---------------------------------------------------------------------------------
+
+// const products = [
+//     {name: "Apple", price: 100},
+//     {name: "Mango", price: 45},
+//     {name: "Strwberry", price: 35},
+//     {name: "Rabutan", price: 60},
+// ];
+
+// const result = products.find(product => product.price > 50)
+// console.log(result)
+
+//---------------------------------------------------------------------------------
+
+
+// ************** finelast(): Tuong tu nhu phuoc thuc find >< khac biet la tim tu cuoi mang \************
+
+// const products = [
+//     {name: "Apple", price: 100},
+//     {name: "Mango", price: 45},
+//     {name: "Strwberry", price: 35},
+//     {name: "Rabutan", price: 60},
+// ];
+
+// const result = products.findLast(product => product.price > 50)
+// console.log(result)
+
+//---------------------------------------------------------------------------------
+
+
+// ************ findIndex(): Tuong tu phuoc thuc find() >< Tuy nhien ket qua tra ve la index cua phan tu ********
+
+// const products = [
+//     {name: "Apple", price: 20},
+//     {name: "Mango", price: 45},
+//     {name: "Strwberry", price: 35},
+//     {name: "Rabutan", price: 60},
+// ];
+
+// const result = products.findIndex(product => product.price > 50)
+// console.log(result)
+
+// *********** Ung dung cua findIndex()********************
+// const inventory = [
+//     {product: "Pen", stock: 10},
+//     {product: "NoteBook", stock: 8},
+//     {product: "Book", stock: 7},
+//     {product: "Pencial", stock: 20},
+// ]
+
+// const index = inventory.findIndex(item => item.stock < 10)
+// console.log(index);
+
+// inventory.splice(index, 1, {
+//     product: "iPhone 18 Pro Max", stock: 122
+// });
+
+// console.log(inventory)
+
+//---------------------------------------------------------------------------------
+
+// findLastIndex() Phuong thuc tuong tu nhu findIndex() >< khac biet la tim tu cuoi mang 
+// const products = [
+//     {name: "Apple", price: 20},
+//     {name: "Mango", price: 45},
+//     {name: "Strwberry", price:  70},
+//     {name: "Rabutan", price: 60},
+// ];
+
+// const result = products.findLastIndex(product => product.price > 60 )
+// console.log(result)
+
+//---------------------------------------------------------------------------------
+
+// const sales = [ 
+//     {item: 'TV', price: 399},
+//     {item: 'Radio', price: 499},
+//     {item: 'TV', price: 299},
+//     {item: 'Radio', price: 599},
+// ]
+
+// const result = sales.findLastIndex(item => {
+//     return item.item === "TV" && item.price < 300
+// });
+
+// console.log(result)
+
+
+//---------------------------------------------------------------------------------
+
+// Phuong thuc filter(): Tra ve mang moi chua tat ca cac phan tu thoa man dieu kien
+
+// let numbers = [1,2,3,4,5,6];
+
+// const result = numbers.filter(function(number)  { 
+//     return number % 2 === 0
+// });
+
+// console.log(result)
+
+// -------------- Neu dieu kien khong thoa mang phuoc thuc se tra ket qua la mang rong [] ---------------
+// let numbers = [1,2,3,4,5,6];
+
+// const result = numbers.filter(number => number % 2 === 0 && number > 10)
+
+// console.log(result)
+
+//--------------------------------------------------------------------------------------
+
+// let numbers = [1,2,3,4,5,6];
+
+// const isEven = num => num % 2 === 0 
+// const result = numbers.filter(isEven)
+
+// console.log(result)
+
+//--------------------------------------------------------------------------------------
+
+// --------------------------------Loc so nguyen duong --------------------------------
+
+// let numbers = [-2, 1, 4, 459, -57, 3, 0, -23];
+// const result = numbers.filter(num => num > 0);
+// console.log(result);;
+
+// ------------- Lay ra cac phan tu khong trung lap ---------------
+
+// let items = [
+//     'Apple',
+//     'Banana',
+//     'Apple',
+//     'Orange',
+//     'Banana',
+//     'Orange'
+// ];
+
+// const result = items.filter((item, index) => {
+//     return items.indexOf(item) === index;
+// }); 
+// console.log(result)
+
+//------------------------Vi du-------------------------------------
+// let people = [
+//     {name: 'Phuc', age: 20 },
+//     {name: 'Huy', age: 12 },
+//     {name: 'Minh', age: 23 },
+// ]
+
+// const result = people.filter(item => item.age > 20)
+// console.log(result)
+
+//-----------------------------Vi du ----------------------------
+
+// const sales = [ 
+//     {item: 'TV', price: 399, stock: 12},
+//     {item: 'Radio', price: 499, stock: 50},
+//     {item: 'TV', price: 299, stock: 30},
+//     {item: 'Radio', price: 599, stock: 200},
+// ]
+
+// const result = sales.filter(product =>
+//     product.price > 200 && product.stock > 20
+// )
+// console.log(result)
+
+
+//-----------------------------------------------------------------------
+// Phuong thuc map(): Tra ve mot mang moi chua cac  phan tu moi, cac phan tu moi duoc tao ra 
+// bang cach xu li cac phan tu tuong ung trong mang cu
+
+// const numbers = [1,2,3,4];
+// //Tao ra mang moi chua cac phan tu cu x2
+// const result = numbers.map(num => num *2);
+// console.log(result);
+
+// --------------------------------------------------------------------------------
+
+// --------------Chuyen doi mot mang so thanh mot mang chuoi ---------------------
+
+// const numbers = [1,2,3];
+// const result = numbers.map(item => item + "")
+// console.log(result)
+
+////*************cach 2//*************
+// const numbers = [1,2,3];
+// const result = numbers.map(item => `${item}`)
+// console.log(result)
+
+//*************cach 3//*************
+
+// const numbers = [1,2,3];
+// const result = numbers.map(item => {
+//     return String(item)
+// })
+// // Co the rut gon lai nhu ben duoi
+// // const result = numbers.map(String)
+// console.log(result)
+
+//-------------------------------------------------------------------------
+
+// Tinh gia sau thue cho moi mat hang 
+
+// const prices = [100, 150, 200];
+// const taxRate = 0.1     // 10%
+// const result = prices.map(price => price + price * taxRate)
+// console.log(result)
+
+// ------------------------------------------------------------------
+// -------------- tao cac phan tu html tu mot mang du lieu----------------------------------
+// const items = ['Apple', 'Banana', 'Orange'];
+// const result = items.map(item => `<li>${item}</li>`);
+
+// const html = `<ul>${result.join('\n')}</ul>`;
+
+// console.log(html)
+
+{/* <ul><li>Apple</li> <li>Banana</li> <li>Orange</li> </ul> */} //**Chu thich
+
+// ------------ Tao mot mang chua ten cac nguoi dung -------------------------------------
+
+// const users = [
+//     {name: 'Alice', age: 22},  
+//     {name: 'Bob', age: 24},  
+//     {name: 'John', age: 26},  
+// ]
+// const result = users.map(user => user.name);
+
+// console.log(result)
+
+//---------------------------------- Cac sai lam thuong gap ----------------------------------
+// **** Quen return 
+
+// Phuong thuc every() va some() 
+// Tra ve kieu du lieu boolean
+
+
+//every() 
+// * Mang rong van tra ve True
+// 
+// const ages = [20, 30, 40];
+
+// const result = ages.every(age => age >= 18);
+
+// console.log(result)
+
+// Truong hop mang rong ket qua tra ve van True
+// Vi du
+
+// const ages = [20, 30, 40];
+
+// const canBuyAlcohol = !!ages.length && ages.every(age => {
+//     return age >= 18;
+// });
+
+// console.log((canBuyAlcohol))
+
+// if (canBuyAlcohol)  {
+//     console.log("Co the mua hang ruou!")
+// }
+// else {
+//     console.log('Khong dat hang ruou')
+// };
+
+//--------------- Kiem tra tat ca cac san pham trong gio hang co san trong kho khong ---------------------
+
+// const products = [
+//     {name: 'Apple', stock: 10},
+//     {name: 'Cherry', stock: 20},
+//     {name: 'Banana', stock: 0},
+// ];
+
+// const result = products.length && products.every(remain => remain.stock > 0)
+// console.log(result)
+
+// -----------------dam bao rang tat ca cac thanh vien trong mot nhom deu tu 18 tuoi tro len----------------
+
+// const members = [
+//     {name: "Bob", age: 10},
+//     {name: "Jophn", age: 18},
+//     {name: "Alice", age: 22},
+// ];
+
+// const result = members.length && 
+// members.every(member => member.age >= 18);
+// console.log(result)
+
+// ------------------------Phuong thuc some(): kiem tra "it nhat 1" phan tu thoa man-------------------
+
+// const numbers = [1,2,3,4,5,6,10];
+
+// const hasEven = numbers.some(num => num % 2 === 0);
+
+// console.log(hasEven)
+
+// --------------Kiem tra co bat hoc sinh nao tu 60 tro len --------------------------------
+// const students = [
+//     {name: "Huy", score: 10},
+//     {name: "Huy", score: 50},
+//     {name: "Huy", score: 60},
+// ]
+// const hasHighScore = students.some(student => student.score >= 60)
+// console.log(hasHighScore)
+
+// ------------------------Kiem tra xem co san pham nao het hang khong--------------------------
+
+const products = [
+    {name: 'Apple', stock: 10},
+    {name: 'Cherry', stock: 20},
+    {name: 'Banana', stock: 0},
+];
+
+const result = products.some(product => product.stock <=0 )
+console.log(result)
