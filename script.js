@@ -2286,11 +2286,107 @@ import{
 
 // ------------------------Kiem tra xem co san pham nao het hang khong--------------------------
 
-const products = [
-    {name: 'Apple', stock: 10},
-    {name: 'Cherry', stock: 20},
-    {name: 'Banana', stock: 0},
-];
+// const products = [
+//     {name: 'Apple', stock: 10},
+//     {name: 'Cherry', stock: 20},
+//     {name: 'Banana', stock: 0},
+// ];
 
-const result = products.some(product => product.stock <=0 )
-console.log(result)
+// const result = products.some(product => product.stock <=0 )
+// console.log(result)
+
+// --------------------------// --------------------------// --------------------------
+
+// phuong thuc reduce(): dung de thuc hien mot ham len tung phan tu cua mang (tu trai sang phai)
+// de rut ra mot gia tri duy nhat
+
+// const numbers = [1, 2, 3, 4];
+
+// let total = 0;
+
+// numbers.forEach(number => total += number)
+
+// console.log(total)
+
+// Ap dung reduce(): 
+
+// const numbers = [1, 2, 3, 4];
+// //total = 0;
+// const result = numbers.reduce((total, number)   => {
+//     return total + number;0
+
+// }, 0);  // '0' o day la gia tri tich tru ban dau 
+
+// console.log(result)
+
+// --------------------------// --------------------------// --------------------------
+
+// const products = [
+//     {name: "iPhone", price: 100},
+//     {name: "iPad", price: 200},
+//     {name: "Macbook", price: 300},
+// ];
+
+// const result = products.reduce((total, product)   =>{
+//     return total + product.price;
+// }, 0) // truyen so '0' de nhan ve mot so. Neu khong truyen gia tri tich luy se tra ve object 
+
+// console.log(result)
+
+// --------------------------// --------------------------// --------------------------
+
+// const order = {
+//     code: "#DH001",
+//     products: [
+//         {name: "iPhone", price: 100, quantity:1  },
+//         {name: "iPad", price: 200, quantity: 3},
+//         {name: "Macbook", price: 300, quantity:2 },
+//     ]
+// };
+
+// const result = order.products.reduce((total, product)   =>  {
+//     return total + (product.price * product.quantity)
+// }, 0);
+
+// console.log(result)
+
+// --------------------------// --------------------------// --------------------------
+const items = ["Apple", 'Banana', 'Apple', 'Orange', 'Banana', 'Apple'];
+
+// Ket qua mong muon: {Apple: 3, Banana: 2, Orange: 1}
+
+// const result= items.reduce((obj, item)  =>  {
+//     if (item in obj)    {
+//         obj[item] ++;
+//     }
+//     else    {
+//         obj[item] = 1;
+//     }
+//     return obj;
+// }, {});
+
+// console.log(result)
+// --------------------------// --------------------------// --------------------------
+
+// Cac sai lam thuong gap: 
+// 1/ Khong dat gia tri khoi tao
+
+
+// Su dung redcuce() de nhan doi cac  gia tri trong mang 
+
+// const numbers = [1, 2, 3];
+
+// const doubled = numbers.reduce((result, number)   =>  {
+//     result.push(number * 2);
+//     return result;
+// }, []);
+
+// console.log(doubled)
+
+// tuy nhien co the su dung map() hoac forEach()
+
+const numbers = [1, 2, 3];
+
+const doubled = numbers.map(num => num * 2);
+
+console.log(doubled)
